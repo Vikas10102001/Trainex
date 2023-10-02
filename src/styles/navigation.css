@@ -3,4 +3,9 @@
   width: 100vw;
   height: 40px;
   display: flex;
+  justify-content: space-between;
+}
+
+.navbar .left {
+  display: flex;
 }
