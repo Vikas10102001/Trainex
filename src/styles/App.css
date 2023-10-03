@@ -1,5 +1,6 @@
 body {
   margin: 0;
+  overflow-x: hidden;
 }
 
 a {
@@ -7,6 +8,12 @@ a {
   color: black;
   cursor: pointer;
 }
-table{
+table {
   width: 100%;
+}
+
+td,
+tr {
+  text-align: center;
+  border: 1px solid black;
 }
