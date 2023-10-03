@@ -10,7 +10,7 @@ const appointmentSlice = createSlice({
     createAppointment(state, action) {
       const { client, date, time } = action.payload;
       const newAppointment = {
-        id: state.data.length + 1, // Generate a new ID
+        id: state.data.length + 1, 
         client,
         date,
         time,
@@ -24,17 +24,16 @@ const appointmentSlice = createSlice({
         (appointment) => appointment.id === id
       );
       if (indexToDelete !== -1) {
-        state.data.splice(indexToDelete, 1); // Remove the appointment
+        state.data.splice(indexToDelete, 1); 
       }
     },
     updateAppointment(state, action) {
       const { id, updates } = action.payload;
-      console.log(id, updates);
       const appointmentToUpdate = state.data.find(
         (appointment) => appointment.id === id
       );
       if (appointmentToUpdate) {
-        Object.assign(appointmentToUpdate, updates); // Update the appointment
+        Object.assign(appointmentToUpdate, updates); 
       }
     },
   },
