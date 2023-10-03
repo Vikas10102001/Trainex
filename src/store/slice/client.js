@@ -1,5 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
-import clients from "../../data/clients.json";
+import clients from "../../data/client.json";
 
 const clientSlice = createSlice({
   name: "client",
@@ -7,8 +7,9 @@ const clientSlice = createSlice({
     data: clients,
   },
   reducers: {
-    createClient: (state, action) => {
-      const { firstName, lastName, DOB, gender, address, profileImg } = action.payload;
+    createClient(state, action) {
+      const { firstName, lastName, DOB, gender, address, profileImg } =
+        action.payload;
       const newClient = {
         id: state.data.length + 1, // Generate a new ID
         firstName,
@@ -20,14 +21,14 @@ const clientSlice = createSlice({
       };
       state.data.push(newClient);
     },
-    deleteClient: (state, action) => {
+    deleteClient(state, action) {
       const { id } = action.payload;
       const indexToDelete = state.data.findIndex((client) => client.id === id);
       if (indexToDelete !== -1) {
         state.data.splice(indexToDelete, 1); // Remove the client
       }
     },
-    updateClient: (state, action) => {
+    updateClient(state, action) {
       const { id, updates } = action.payload;
       const clientToUpdate = state.data.find((client) => client.id === id);
       if (clientToUpdate) {
@@ -36,6 +37,5 @@ const clientSlice = createSlice({
     },
   },
 });
-
 
 export default clientSlice;
