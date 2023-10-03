@@ -1,0 +1,21 @@
+.dashboard-status {
+  display: flex;
+  justify-content: space-between;
+}
+
+.dashboard-main {
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.dashboard-main .header
+{
+  width: 80vw;
+}
+.dashboard-main .table-data
+{
+  width: 80vw;
+}
