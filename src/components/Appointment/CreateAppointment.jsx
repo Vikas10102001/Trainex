@@ -1,10 +1,12 @@
 import React, { useState } from "react";
+import { useDispatch } from "react-redux";
+import { createAppointment } from "../../store/store";
 
-export default function CreateAppointment() {
+export default function CreateAppointment({ clientId }) {
   const [error, setError] = useState(null);
   const [minTime, setMinTime] = useState("4:00");
   const [formData, setFormData] = useState({ date: null, time: null });
-
+  const dispatch = useDispatch();
   const handleChangeDate = (e) => {
     const inputDate = new Date(e.target.value);
     setFormData((prev) => ({
@@ -21,11 +23,13 @@ export default function CreateAppointment() {
   };
   const handleOnSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
+    formData.client = clientId;
+    dispatch(createAppointment(formData));
   };
   const currentDate = new Date().toISOString().split("T")[0];
   return (
     <form>
+      <h4>Appointment</h4>
       <label>Create Appointment:</label>
       <input
         type="date"
