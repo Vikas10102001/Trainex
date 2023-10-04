@@ -1,7 +1,8 @@
 import React from "react";
+import ReactDOM from "react-dom";
 
 const ConfirmationModal = ({ isOpen, onConfirm, onCancel }) => {
-  return (
+  return ReactDOM.createPortal(
     <div className={`modal ${isOpen ? "is-active" : ""}`}>
       <div className="modal-background" onClick={onCancel}></div>
       <div className="modal-card">
@@ -25,7 +26,8 @@ const ConfirmationModal = ({ isOpen, onConfirm, onCancel }) => {
           </button>
         </footer>
       </div>
-    </div>
+    </div>,
+    document.body
   );
 };
 
