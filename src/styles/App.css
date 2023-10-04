@@ -101,3 +101,33 @@ tr {
 .delete:hover {
   color: #ff3860;
 }
+
+/*Alert*/
+
+.alert {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 400;
+  text-align: center;
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  padding: 0.6rem 8rem;
+  box-shadow: 0 2rem 4rem rgba(0, 0, 0, 0.25);
+}
+
+.alert_success {
+  background-color: #28b487;
+}
+
+.alert_info {
+  background-color: rgb(67, 96, 203);
+}
+
+.alert_error {
+  background-color: #d44b4b;
+}
