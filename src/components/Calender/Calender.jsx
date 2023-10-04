@@ -1,5 +1,5 @@
 import React from "react";
-import AppLayout from "../shared/AppLayout";
+import AppLayout from "../shared/ui/AppLayout";
 
 export default function Calender() {
   return (

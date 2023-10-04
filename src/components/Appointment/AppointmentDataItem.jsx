@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { DeleteOutline } from "@mui/icons-material";
 import { useDispatch } from "react-redux";
-import { deleteAppointment } from "../../store/store";
+import { deleteAppointment, setAlert } from "../../store/store";
 import ConfirmationModal from "../shared/component/ConfirmationModal";
 import EditableField from "../shared/component/EditableField";
 export default function AppointmentDataItem({ index, appointment }) {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [deleteId, setDeleteId] = useState();
-  const splitDate = appointment.date.split("/");
-  const initialDate = splitDate[2] + "-" + splitDate[1] + "-" + splitDate[0];
+  // const splitDate = appointment.date.split("/");
+  // const initialDate = splitDate[2] + "-" + splitDate[1] + "-" + splitDate[0];
 
   const dispatch = useDispatch();
 
@@ -18,6 +18,9 @@ export default function AppointmentDataItem({ index, appointment }) {
   };
   const handleOnConfirm = () => {
     dispatch(deleteAppointment({ id: deleteId }));
+    dispatch(
+      setAlert({ type: "success", message: "Appointment deleted successfully" })
+    );
   };
   const handleOnCancel = () => {
     setModalIsOpen(false);
@@ -31,7 +34,7 @@ export default function AppointmentDataItem({ index, appointment }) {
           <EditableField
             type={"date"}
             fieldName={"date"}
-            initialData={initialDate}
+            initialData={appointment.date}
             fieldValue={appointment.date}
             updateType={"appoint"}
             id={appointment.id}

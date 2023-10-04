@@ -6,6 +6,7 @@ import EditableField from "../shared/component/EditableField";
 
 function AppointmentTable({ clientAppointment }) {
   const [showAppointmentData, setShowAppointmentData] = useState({});
+  console.log(clientAppointment);
 
   const toggleArrowButton = (clientId) => {
     setShowAppointmentData((prevState) => ({
@@ -17,7 +18,6 @@ function AppointmentTable({ clientAppointment }) {
     <table>
       <thead>
         <tr>
-          <th>ID</th>
           <th>First Name</th>
           <th>Last Name</th>
           <th>Location</th>
@@ -28,7 +28,6 @@ function AppointmentTable({ clientAppointment }) {
         {clientAppointment.map((item) => (
           <React.Fragment key={item.clientId}>
             <tr>
-              <td>{item.clientId}</td>
               <td>
                 <EditableField
                   type={"text"}
@@ -73,15 +72,19 @@ function AppointmentTable({ clientAppointment }) {
             {showAppointmentData[item.clientId] && (
               <>
                 <tr style={{ border: "1px solid black" }}>
-                  <td colSpan="5">
+                  <td colSpan="4">
                     <CreateAppointment clientId={item.clientId} />
                   </td>
                 </tr>
-                <tr>
-                  <td colSpan="5">
-                    <AppointmentData item={item} />
-                  </td>
-                </tr>
+                {item.appointments.length !== 0 ? (
+                  <tr>
+                    <td colSpan="4">
+                      <AppointmentData item={item} />
+                    </td>
+                  </tr>
+                ) : (
+                  <></>
+                )}
               </>
             )}
           </React.Fragment>
