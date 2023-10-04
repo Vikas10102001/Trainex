@@ -1,10 +1,8 @@
 import React, { useState } from "react";
-import {
-  KeyboardArrowDown,
-  KeyboardArrowUp,
-} from "@mui/icons-material";
+import { KeyboardArrowDown, KeyboardArrowUp } from "@mui/icons-material";
 import CreateAppointment from "./CreateAppointment";
 import AppointmentData from "./AppointmentData";
+import EditableField from "../shared/component/EditableField";
 
 function AppointmentTable({ clientAppointment }) {
   const [showAppointmentData, setShowAppointmentData] = useState({});
@@ -15,7 +13,6 @@ function AppointmentTable({ clientAppointment }) {
       [clientId]: !prevState[clientId],
     }));
   };
-  console.log(clientAppointment)
   return (
     <table>
       <thead>
@@ -32,9 +29,36 @@ function AppointmentTable({ clientAppointment }) {
           <React.Fragment key={item.clientId}>
             <tr>
               <td>{item.clientId}</td>
-              <td>{item.firstName}</td>
-              <td>{item.lastName}</td>
-              <td>{item.location}</td>
+              <td>
+                <EditableField
+                  type={"text"}
+                  initialData={item.firstName}
+                  fieldName={"firstName"}
+                  fieldValue={item.firstName}
+                  updateType={"client"}
+                  id={item.clientId}
+                />
+              </td>
+              <td>
+                <EditableField
+                  type={"text"}
+                  initialData={item.lastName}
+                  fieldName={"lastName"}
+                  fieldValue={item.lastName}
+                  updateType={"client"}
+                  id={item.clientId}
+                />
+              </td>
+              <td>
+                <EditableField
+                  type={"text"}
+                  initialData={item.location}
+                  fieldName={"address"}
+                  fieldValue={item.location}
+                  updateType={"client"}
+                  id={item.clientId}
+                />
+              </td>
               <td>
                 {item.appointments.length}{" "}
                 <span onClick={() => toggleArrowButton(item.clientId)}>
