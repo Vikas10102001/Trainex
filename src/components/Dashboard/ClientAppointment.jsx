@@ -49,7 +49,6 @@ export default function ClientAppointment({
     el.appointments = filteredAppointment;
   });
 
-  //remove the o appointment when filterObject.appointmentDate !== ""
 
   return (
     <div className="dashboard-main">
