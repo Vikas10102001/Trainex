@@ -8,8 +8,8 @@ import {
 
 export default function CreateAppointment({ clientId }) {
   const [error, setError] = useState(null);
-  const [time, setTime] = useState(null);
-  const [date, setDate] = useState(null);
+  const [time, setTime] = useState("");
+  const [date, setDate] = useState("");
   const timeRef = useRef();
   const dateRef = useRef();
   const dispatch = useDispatch();
@@ -82,7 +82,7 @@ export default function CreateAppointment({ clientId }) {
       </button>
       <button
         type="submit"
-        disabled={error ? true : false}
+        disabled={!!error || !date || !time}
         onClick={handleOnSubmit}
       >
         Create
