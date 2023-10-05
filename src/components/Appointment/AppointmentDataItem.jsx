@@ -2,16 +2,12 @@ import React, { useState } from "react";
 import { DeleteOutline } from "@mui/icons-material";
 import { useDispatch } from "react-redux";
 import { deleteAppointment, setAlert } from "../../store/store";
-import ConfirmationModal from "../shared/component/ConfirmationModal";
 import EditableField from "../shared/component/EditableField";
+import Modal from "../shared/component/Modal";
 export default function AppointmentDataItem({ index, appointment }) {
   const [modalIsOpen, setModalIsOpen] = useState(false);
   const [deleteId, setDeleteId] = useState();
-  // const splitDate = appointment.date.split("/");
-  // const initialDate = splitDate[2] + "-" + splitDate[1] + "-" + splitDate[0];
-
   const dispatch = useDispatch();
-
   const handleDelete = (id) => {
     setModalIsOpen(true);
     setDeleteId(id);
@@ -59,10 +55,22 @@ export default function AppointmentDataItem({ index, appointment }) {
         </td>
       </tr>
       {modalIsOpen && (
-        <ConfirmationModal
+        <Modal
           isOpen={modalIsOpen}
           onConfirm={handleOnConfirm}
           onCancel={handleOnCancel}
+          title={"Confirm Delete"}
+          data={<p>Are you sure ?</p>}
+          footer={
+            <>
+              <button className="button is-danger" onClick={handleOnConfirm}>
+                Confirm
+              </button>
+              <button className="button" onClick={handleOnCancel}>
+                Cancel
+              </button>
+            </>
+          }
         />
       )}
     </>
