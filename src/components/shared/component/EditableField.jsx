@@ -7,7 +7,6 @@ import {
 } from "../../../store/store";
 import { CheckCircleOutline, EditOutlined } from "@mui/icons-material";
 import {
-  validateAppointmentData,
   validateAppointmentDataOnUpdate,
   validateAppointmentTimeOnUpdate,
 } from "../../../utils/validation";
@@ -19,9 +18,12 @@ export default function EditableField({
   fieldValue,
   updateType,
   id,
+  maxLength,
+  minLength,
 }) {
   const [editMode, setEditMode] = useState(false);
   const [inputData, setInputData] = useState(initialData);
+  const [fieldError, setFieldError] = useState(null);
   const dispatch = useDispatch();
   const inputRef = useRef(null);
   useEffect(() => {
@@ -31,7 +33,10 @@ export default function EditableField({
   const saveData = () => {
     let updates = { [fieldName]: inputData };
     let error;
-    if (updateType === "client") dispatch(updateClient({ id, updates }));
+    if (updateType === "client") {
+      if (!fieldError) dispatch(updateClient({ id, updates }));
+      else setInputData(initialData);
+    }
     if (type === "date")
       updates = { date: new Date(inputData).toLocaleDateString() };
     if (updateType === "appoint") {
@@ -44,6 +49,12 @@ export default function EditableField({
             updates,
           })
         );
+      dispatch(
+        setAlert({
+          type: "success",
+          message: "Appointment updated successfully",
+        })
+      );
     }
   };
   const handleOnChange = (e) => {
@@ -53,7 +64,11 @@ export default function EditableField({
         id: id,
         [fieldName]: e.target.value,
       });
-    console.log(error);
+    if (minLength && minLength > e.target.value.length)
+      error = `Allowed ${minLength}-${maxLength} characters`;
+    setFieldError(error);
+    if (fieldName !== "time" && fieldName !== "date")
+      setInputData(e.target.value);
     if (!error) setInputData(e.target.value);
   };
   const handleEdit = () => {
@@ -65,6 +80,7 @@ export default function EditableField({
   const handleBlur = () => {
     saveData();
     setEditMode(false);
+    setFieldError(null);
   };
   const handleKeyPress = (e) => {
     if (e.code === "Enter") {
@@ -79,6 +95,8 @@ export default function EditableField({
           type={type}
           value={inputData}
           ref={inputRef}
+          maxLength={maxLength}
+          minLength={minLength}
           onChange={(e) => {
             handleOnChange(e);
           }}
@@ -93,6 +111,7 @@ export default function EditableField({
       ) : (
         <EditOutlined onClick={handleEdit} />
       )}
+      {fieldError && <p>{fieldError}</p>}
     </>
   );
 }
