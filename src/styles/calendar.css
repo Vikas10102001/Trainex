@@ -1,0 +1,141 @@
+.calendar {
+  margin: 0 auto;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.month-navigation {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 2rem 0 1rem 0;
+}
+
+.month-navigation h1 {
+  margin: 0 2rem;
+}
+.month-navigation button {
+  background: none;
+  cursor: pointer;
+  font-size: 1.25rem;
+  font-weight: 900;
+  background-color: #007bff;
+  color: white;
+  border: 3px solid #007bff;
+  border-radius: 50%;
+  transition: all 0.2s;
+}
+.month-navigation button:hover {
+  background-color: white;
+  color: #007bff;
+  border-color: #007bff;
+  transform: translateY(-10%);
+  box-shadow: 0 1rem 2rem rgba(0, 0, 0, 0.15);
+}
+.calendar-container {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  padding: 1rem;
+  box-sizing: border-box;
+}
+
+.left-column {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.left-column button {
+  margin: 5px 0;
+  border: none;
+  padding: 5px;
+  padding-left: 1rem;
+  background: none;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: 600;
+  color: #767272;
+  text-align: left;
+}
+
+.left-column button.active {
+  font-weight: bold;
+  font-size: 17px;
+  color: #007bff;
+}
+.right-column {
+  flex: 10;
+}
+.days-of-week {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+  font-size: 1.2rem;
+  background: #f0f0f0;
+}
+
+.day-of-week {
+  width: calc(100% / 7);
+  height: 1.25rem;
+  text-align: center;
+  border: 1px solid #ccc;
+  padding: 0.5rem;
+}
+
+.days {
+  display: grid;
+  width: 100%;
+  height: calc(100% - 2.25rem - 2px);
+  grid-template-columns: repeat(7, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+}
+
+.day {
+  width: 100%;
+  border: 1px solid #e7e4e4;
+  padding: 0.5rem;
+  box-sizing: border-box;
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.day .date {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+.day.current-date {
+  background-color: #f0f0f0;
+}
+.day.appointment-date {
+  background-color: #007bff3d;
+  border: 2px solid #3295ff;
+}
+
+/* info */
+.info-card-link {
+  cursor: pointer;
+  display: inline-block;
+  color: #2e2efe;
+
+  font-size: 1rem;
+  font-weight: 500;
+}
+
+.info-card-link:hover {
+  color: #424242;
+}
+.info-card-data {
+  display: flex;
+  justify-content: space-between;
+}
+.info-card-title {
+  display: flex;
+  justify-content: space-between;
+}
+.info-card-date {
+  font-size: 15px;
+}
