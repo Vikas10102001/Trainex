@@ -6,7 +6,6 @@ import EditableField from "../shared/component/EditableField";
 
 function AppointmentTable({ clientAppointment }) {
   const [showAppointmentData, setShowAppointmentData] = useState({});
-  console.log(clientAppointment);
 
   const toggleArrowButton = (clientId) => {
     setShowAppointmentData((prevState) => ({
@@ -36,6 +35,8 @@ function AppointmentTable({ clientAppointment }) {
                   fieldValue={item.firstName}
                   updateType={"client"}
                   id={item.clientId}
+                  maxLength={15}
+                  minLength={2}
                 />
               </td>
               <td>
@@ -46,6 +47,7 @@ function AppointmentTable({ clientAppointment }) {
                   fieldValue={item.lastName}
                   updateType={"client"}
                   id={item.clientId}
+                  maxLength={15}
                 />
               </td>
               <td>
@@ -56,17 +58,19 @@ function AppointmentTable({ clientAppointment }) {
                   fieldValue={item.location}
                   updateType={"client"}
                   id={item.clientId}
+                  maxLength={50}
                 />
               </td>
               <td>
                 {item.appointments.length}{" "}
-                <span onClick={() => toggleArrowButton(item.clientId)}>
+                <button onClick={() => toggleArrowButton(item.clientId)}>
+                  <span>Manage</span>
                   {showAppointmentData[item.clientId] ? (
                     <KeyboardArrowUp />
                   ) : (
                     <KeyboardArrowDown />
                   )}
-                </span>
+                </button>
               </td>
             </tr>
             {showAppointmentData[item.clientId] && (
