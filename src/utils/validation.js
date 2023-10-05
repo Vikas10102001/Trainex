@@ -18,12 +18,17 @@ export const validateAppointmentTime = (date, time) => {
   return error;
 };
 
-export const validateAppointmentData = ({ date, time }) => {
+export const validateAppointmentData = ({ date, time, id }) => {
   const appointmentData = store.getState().appointment.data;
 
   let error = null;
   const overlappingAppointment = appointmentData.find((appointment) => {
-    return appointment.date === date && appointment.time === time;
+    return (
+      appointment.date === date &&
+      appointment.time === time &&
+      id &&
+      appointment.id !== id
+    );
   });
 
   if (overlappingAppointment) {
@@ -43,11 +48,13 @@ export const validateAppointmentDataOnUpdate = ({ id, updates }) => {
   console.log(id, updates);
   const appointmentData = store.getState().appointment.data;
   const appointment = appointmentData.find((el) => el.id === id);
-  const copy={...appointment}
+  const copy = { ...appointment };
   Object.entries(updates).forEach(([key, value]) => {
     copy[key] = value;
   });
-
-  console.log(appointment);
-  return validateAppointmentData({ date:copy.date,time:copy.time });
+  return validateAppointmentData({
+    date: copy.date,
+    time: copy.time,
+    id: appointment.id,
+  });
 };
