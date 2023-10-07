@@ -7,7 +7,6 @@ export default function AppLayout({ children }) {
     <div className="app-layout">
       <Navbar />
       {children}
-      <Footer />
     </div>
   );
 }
