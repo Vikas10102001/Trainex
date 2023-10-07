@@ -1,11 +1,35 @@
 .navbar {
-  background-color: rgb(234, 233, 233);
   width: 100vw;
-  height: 40px;
+  height: 2.75rem;
   display: flex;
   justify-content: space-between;
+  border-bottom: 1px solid #dcdada;
+  padding: 10px 0 0 0;
 }
 
 .navbar .left {
   display: flex;
+  padding-left: 2rem;
+  align-items: center;
+  justify-content: center;
+}
+.navbar .right {
+  padding-right: 4rem;
+}
+.navbar button {
+  margin: 0 1rem;
+  border: none;
+  color: #007bff;
+  background: none;
+}
+.navbar button.active {
+  background: #0000000f;
+}
+.navbar button:hover {
+  background: #0000000f;
+}
+
+.navbar .logo-name {
+  font-weight: bold;
+  font-size: 1.65rem;
 }
