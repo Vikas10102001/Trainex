@@ -211,6 +211,7 @@ button.danger:hover {
 /* editable field */
 .editable-field {
   border-right: 1px solid #7e7e7e4a;
+  position: relative;
 }
 .editable-field .field {
   width: 100%;
@@ -218,17 +219,15 @@ button.danger:hover {
   justify-content: space-around;
   align-items: center;
 }
-.editable-field .field span,
-.editable-field .field input {
-  flex: 2;
-}
 .editable-field .field input {
   outline: none;
   border: none;
   border-bottom: 1px solid #7373733b;
 }
-.editable-field .field .button {
-  flex: 1;
+.editable-field .button {
+  position: absolute;
+  top: 0;
+  right: 1rem;
 }
 
 input[type="search"],

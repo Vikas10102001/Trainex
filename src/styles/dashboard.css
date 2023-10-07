@@ -216,6 +216,9 @@ li.table-row.client div {
   border: 1px solid #515151;
   cursor: pointer;
 }
+.create-appointment .submit {
+  margin-left: 0.5rem;
+}
 .create-appointment .error {
   margin-left: 1rem;
 }

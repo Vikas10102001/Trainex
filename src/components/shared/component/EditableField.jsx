@@ -115,7 +115,9 @@ export default function EditableField({
         ) : (
           <span>{fieldValue}</span>
         )}
-        <div className="button">
+        
+      </div>
+      <div className="button">
           {editMode ? (
             <CheckCircleOutline
               onClick={handleOnSave}
@@ -130,7 +132,6 @@ export default function EditableField({
             />
           )}
         </div>
-      </div>
       <div className="error">
         {" "}
         {fieldError && <p className="error">{fieldError}</p>}
