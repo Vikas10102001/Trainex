@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import AppointmentTable from "../Appointment/AppointmentTable";
 import ClientTable from "../Client/ClientTable";
-import { FilterList } from "@mui/icons-material";
+import { EditCalendar, FilterList, Person } from "@mui/icons-material";
 import FilterMenu from "./FilterMenu";
 
 export default function ClientAppointment({
@@ -9,9 +9,20 @@ export default function ClientAppointment({
   filterObject,
   setFilterObject,
 }) {
-  console.log(clientAppointment);
   const [switchAppointment, setSwitchAppointment] = useState(true);
   const [filterMenuVisiblity, setFilterMenuVisiblity] = useState(false);
+
+  const [filterIsActive, setFilterIsActive] = useState(false);
+
+  useEffect(() => {
+    if (
+      filterObject.name !== "" ||
+      filterObject.appointmentDate !== "" ||
+      filterObject.gender !== ""
+    )
+      setFilterIsActive(true);
+    else setFilterIsActive(false);
+  }, [filterObject]);
   const hanldeOnClickFilterMenu = () => {
     setFilterMenuVisiblity(!filterMenuVisiblity);
   };
@@ -37,25 +48,43 @@ export default function ClientAppointment({
       (gender === "" || el.gender.toLowerCase() === gender.toLowerCase())
     );
   });
-  filteredClients.forEach((el) => {
-    const filteredAppointment = el.appointments.filter((appointment) => {
-     
-      return (
+  const filteredClientsWithAppointment = filteredClients.map((el) => {
+    return { ...el, appointments: [] };
+  });
+  filteredClients.forEach((el, ind) => {
+    el.appointments.forEach((appointment) => {
+      if (
         filterObject.appointmentDate === "" ||
         appointment.date ===
           new Date(filterObject.appointmentDate).toLocaleDateString()
-      );
+      ) {
+        filteredClientsWithAppointment[ind].appointments.push(appointment);
+      }
     });
-    el.appointments = filteredAppointment;
+    if (
+      filterIsActive &&
+      filteredClientsWithAppointment[ind].appointments.length === 0
+    )
+      delete filteredClientsWithAppointment[ind];
   });
-
-
   return (
     <div className="dashboard-main">
       <div className="header">
         <div className="switch">
-          <button onClick={handleClientSwitch}>Client</button>
-          <button onClick={hanldeAppointmentSwitch}>Appointment</button>
+          <button
+            className={`${!switchAppointment ? "active" : ""}`}
+            onClick={handleClientSwitch}
+          >
+            <Person />
+            Client
+          </button>
+          <button
+            onClick={hanldeAppointmentSwitch}
+            className={`${switchAppointment ? "active" : ""}`}
+          >
+            <EditCalendar />
+            Appointment
+          </button>
         </div>
         <div className="filter">
           <input
@@ -65,7 +94,10 @@ export default function ClientAppointment({
             value={filterObject.name}
           />
           <div className="filter-container">
-            <FilterList onClick={hanldeOnClickFilterMenu} />
+            <FilterList
+              onClick={hanldeOnClickFilterMenu}
+              style={{ color: `${filterIsActive ? "#007bffe" : "black"}` }}
+            />
             {filterMenuVisiblity && (
               <FilterMenu
                 filterObject={filterObject}
@@ -78,7 +110,9 @@ export default function ClientAppointment({
       </div>
       <div className="table-data">
         {switchAppointment ? (
-          <AppointmentTable clientAppointment={filteredClients} />
+          <AppointmentTable
+            clientAppointment={filteredClientsWithAppointment}
+          />
         ) : (
           <ClientTable />
         )}
