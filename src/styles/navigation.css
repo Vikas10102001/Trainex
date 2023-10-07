@@ -3,8 +3,9 @@
   height: 2.75rem;
   display: flex;
   justify-content: space-between;
+  align-items: center;
   border-bottom: 1px solid #dcdada;
-  padding: 10px 0 0 0;
+  padding: 0.4rem 0;
 }
 
 .navbar .left {
@@ -28,8 +29,19 @@
 .navbar button:hover {
   background: #0000000f;
 }
-
+.navbar .logo a {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: all 0.2s;
+  mix-blend-mode: multiply;
+}
+.navbar .logo a:hover {
+  transform: scale(1.06);
+  mix-blend-mode: multiply;
+}
 .navbar .logo-name {
   font-weight: bold;
   font-size: 1.65rem;
 }
+

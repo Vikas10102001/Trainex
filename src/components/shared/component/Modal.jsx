@@ -18,7 +18,7 @@ const Modal = ({ isOpen, onConfirm, onCancel, title, footer, data }) => {
       <div className="modal-background" onClick={onCancel}></div>
       <div className="modal-card">
         <header className="modal-card-head">
-          <p className="modal-card-title">{title}</p>
+          <div className="modal-card-title">{title}</div>
         </header>
         <section className="modal-card-body">{data}</section>
         <footer className="modal-card-foot">{footer}</footer>

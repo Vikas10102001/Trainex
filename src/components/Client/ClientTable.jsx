@@ -6,7 +6,7 @@ function ClientProfile() {
   const clients = useSelector((state) => state.client.data);
 
   return (
-    <Card>
+    <Card className={"table-card"}>
       <ul className="table">
         <li className="table-header">
           <div>ID</div>

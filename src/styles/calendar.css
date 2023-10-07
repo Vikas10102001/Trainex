@@ -67,7 +67,7 @@
   font-size: 17px;
   color: #007bff;
 }
-.left-column button:hover{
+.left-column button:hover {
   color: #424242;
 }
 .right-column {
@@ -123,9 +123,7 @@
   cursor: pointer;
   display: inline-block;
   color: #007bff;
-
   font-size: 1rem;
-  font-weight: 500;
 }
 
 .info-card-link:hover {
@@ -135,7 +133,7 @@
   display: flex;
   justify-content: space-between;
   margin: 0.5rem 0;
-  font-size: 15px;
+  font-size: 14px;
 }
 
 .info-card-title {
@@ -143,5 +141,5 @@
   justify-content: space-between;
 }
 .info-card-date {
-  font-size: 15px;
+  font-size: 14px;
 }

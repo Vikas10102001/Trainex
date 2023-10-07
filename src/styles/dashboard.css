@@ -123,6 +123,9 @@
   padding: 0.4rem 0.65rem;
 }
 
+.table-card{
+  overflow: hidden;
+}
 ul.table {
   list-style-type: none;
   padding: 0;
@@ -149,6 +152,9 @@ li.table-row div,
 li.table-header div {
   flex: 1;
   text-align: center;
+}
+li.table-header div{
+  color: #515151;
 }
 li.table-row .sNo {
   border-right: 1px solid #7e7e7e4a;

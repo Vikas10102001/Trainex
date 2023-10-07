@@ -45,17 +45,8 @@ a {
   color: black;
   cursor: pointer;
 }
-/* table {
-  width: 100%;
-} */
 
-td,
-tr {
-  text-align: center;
-  border: 1px solid black;
-}
-
-/* comfirm modal */
+/*modal */
 .modal {
   display: hidden;
 }
@@ -94,7 +85,7 @@ tr {
 }
 
 .modal-card-head {
-  background-color: #f2f4f7;
+  background-color: #f1f1f1;
   padding: 20px;
   border-bottom: 1px solid #ddd;
   position: relative;
@@ -112,7 +103,7 @@ tr {
 }
 
 .modal-card-foot {
-  background-color: #f2f4f7;
+  background-color: #f1f1f1;
   padding: 20px;
   text-align: right;
   border-radius: 0 0 15px 15px;
@@ -179,7 +170,7 @@ button.danger:hover {
 
 .alert {
   position: fixed;
-  top: 5%;
+  top: 4%;
   left: 50%;
   transform: translateX(-50%);
   z-index: 9999;
@@ -223,6 +214,7 @@ button.danger:hover {
   outline: none;
   border: none;
   border-bottom: 1px solid #7373733b;
+  text-align: center;
 }
 .editable-field .button {
   position: absolute;

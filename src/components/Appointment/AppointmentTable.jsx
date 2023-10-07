@@ -15,7 +15,7 @@ function AppointmentTable({ clientAppointment }) {
     }));
   };
   return (
-    <Card>
+    <Card className={"table-card"}>
       <ul className="table">
         <li className="table-header">
           <div>First Name</div>
