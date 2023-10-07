@@ -1,4 +1,4 @@
-import React  from "react";
+import React from "react";
 import "../../styles/navigation.css";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 export default function Navbar() {
@@ -16,10 +16,10 @@ export default function Navbar() {
       <div className="left">
         <div className="logo">
           <Link to="/">
-            <img src="/logo-white.png" alt="logo" />
+            <img src="/TrainexLogo.jpg" alt="logo" width={50} height={50} />
+            <span className="logo-name">Trainex</span>
           </Link>
         </div>
-        <span className="logo-name">Trainex</span>
       </div>
       <div className="right">
         <button
