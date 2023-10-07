@@ -207,6 +207,10 @@ li.table-row.client div {
   padding: 0;
   margin-right: 0.5rem;
 }
+.create-appointment form .error{
+  min-width: 100px;
+  width: max-content;
+}
 .create-appointment label {
   font-size: 14px;
   color: #757575;

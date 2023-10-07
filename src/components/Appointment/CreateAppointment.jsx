@@ -5,7 +5,7 @@ import {
   validateAppointmentData,
   validateAppointmentTime,
 } from "../../utils/validation";
-import { Close } from "@mui/icons-material";
+import { Close, RestartAlt } from "@mui/icons-material";
 
 export default function CreateAppointment({ clientId }) {
   const [error, setError] = useState(null);
@@ -80,7 +80,13 @@ export default function CreateAppointment({ clientId }) {
       />
       <div className="buttons">
         <button type="reset" onClick={handleReset} className="reset ">
-          <Close style={{ fontSize: "12", color: "#515151", padding: "1px" }} />
+          <RestartAlt
+            style={{
+              fontSize: "15",
+              color: "#515151",
+              padding: "1px",
+            }}
+          />
         </button>
         <button
           type="submit"
