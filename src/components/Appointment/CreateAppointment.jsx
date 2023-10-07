@@ -5,6 +5,7 @@ import {
   validateAppointmentData,
   validateAppointmentTime,
 } from "../../utils/validation";
+import { Close } from "@mui/icons-material";
 
 export default function CreateAppointment({ clientId }) {
   const [error, setError] = useState(null);
@@ -60,8 +61,7 @@ export default function CreateAppointment({ clientId }) {
   const currentDate = new Date().toISOString().split("T")[0];
   return (
     <form>
-      <h4>Appointment</h4>
-      <label>Create Appointment:</label>
+      <label>Create Appointment :&nbsp;</label>
       <input
         type="date"
         name="appointmentDate"
@@ -77,17 +77,20 @@ export default function CreateAppointment({ clientId }) {
         onChange={handleChangeTime}
         ref={dateRef}
       />
-      <button type="reset" onClick={handleReset}>
-        x
-      </button>
-      <button
-        type="submit"
-        disabled={!!error || !date || !time}
-        onClick={handleOnSubmit}
-      >
-        Create
-      </button>
-      {error && <p>{error}</p>}
+      <div className="buttons">
+        <button type="reset" onClick={handleReset} className="reset ">
+          <Close style={{ fontSize: "14", color: "#515151" }} />
+        </button>
+        <button
+          type="submit"
+          disabled={!!error || !date || !time}
+          onClick={handleOnSubmit}
+          className="primary"
+        >
+          Create
+        </button>
+      </div>
+      {error && <p className="error">{error}</p>}
     </form>
   );
 }
