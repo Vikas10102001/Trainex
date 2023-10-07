@@ -45,6 +45,7 @@ function AppointmentTable({ clientAppointment }) {
                 updateType={"client"}
                 id={item.clientId}
                 maxLength={15}
+                minLength={2}
               />
 
               <EditableField
@@ -55,6 +56,7 @@ function AppointmentTable({ clientAppointment }) {
                 updateType={"client"}
                 id={item.clientId}
                 maxLength={50}
+                minLength={5}
               />
               <div className="table-row-item manage">
                 <span>{item.appointments.length}</span>

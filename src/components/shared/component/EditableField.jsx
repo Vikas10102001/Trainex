@@ -20,6 +20,7 @@ export default function EditableField({
   id,
   maxLength,
   minLength,
+  min,
 }) {
   const [editMode, setEditMode] = useState(false);
   const [inputData, setInputData] = useState(initialData);
@@ -69,6 +70,7 @@ export default function EditableField({
         id: id,
         [fieldName]: e.target.value,
       });
+    console.log(minLength, e.target.value.length);
     if (minLength && minLength > e.target.value.length)
       error = `Allowed ${minLength}-${maxLength} characters`;
     setFieldError(error);
@@ -82,8 +84,8 @@ export default function EditableField({
   const handleOnSave = () => {
     saveData();
   };
-  const handleBlur = () => {
-    saveData();
+  const handleBlur = (e) => {
+    if (inputData !== initialData) saveData();
     setEditMode(false);
     setFieldError(null);
   };
@@ -103,6 +105,7 @@ export default function EditableField({
             ref={inputRef}
             maxLength={maxLength}
             minLength={minLength}
+            min={min}
             onChange={(e) => {
               handleOnChange(e);
             }}

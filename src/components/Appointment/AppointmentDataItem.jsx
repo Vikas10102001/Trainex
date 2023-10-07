@@ -16,12 +16,13 @@ export default function AppointmentDataItem({ index, appointment }) {
   const handleOnConfirm = () => {
     dispatch(deleteAppointment({ id: deleteId }));
     dispatch(
-      setAlert({ type: "success", message: "Appointment deleted successfully" })
+      setAlert({ type: "info", message: "Appointment deleted successfully" })
     );
   };
   const handleOnCancel = () => {
     setModalIsOpen(false);
   };
+  const currentDate = new Date().toISOString().split("T")[0];
 
   return (
     <>
@@ -34,6 +35,7 @@ export default function AppointmentDataItem({ index, appointment }) {
           fieldValue={formatDate(appointment.date)}
           updateType={"appoint"}
           id={appointment.id}
+          min={currentDate}
         />
         <EditableField
           type={"time"}

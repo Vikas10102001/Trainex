@@ -16,7 +16,8 @@ export default function CreateAppointment({ clientId }) {
   const dispatch = useDispatch();
   const handleChangeDate = (e) => {
     const inputDate = new Date(e.target.value);
-    const error = time && validateAppointmentTime(inputDate, time);
+    const error =
+      time && validateAppointmentTime(inputDate.toLocaleDateString(), time);
     setError(error);
     setDate(inputDate.toLocaleDateString());
   };
@@ -79,13 +80,13 @@ export default function CreateAppointment({ clientId }) {
       />
       <div className="buttons">
         <button type="reset" onClick={handleReset} className="reset ">
-          <Close style={{ fontSize: "12", color: "#515151",padding:"1px"}} />
+          <Close style={{ fontSize: "12", color: "#515151", padding: "1px" }} />
         </button>
         <button
           type="submit"
           disabled={!!error || !date || !time}
           onClick={handleOnSubmit}
-          className="primary"
+          className="primary submit"
         >
           Create
         </button>

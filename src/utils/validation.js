@@ -1,6 +1,7 @@
 import store from "../store/store";
 
 export const validateAppointmentTime = (date, time) => {
+  console.log(date, typeof time);
   let error = null;
   const current = new Date();
   const hr = +time.split(":")[0];
@@ -15,22 +16,27 @@ export const validateAppointmentTime = (date, time) => {
       }
     }
   }
+  console.log(error);
   return error;
 };
 
 export const validateAppointmentData = ({ date, time, id }) => {
   const appointmentData = store.getState().appointment.data;
-
+  console.log(date, time, id);
   let error = null;
-  const overlappingAppointment = appointmentData.find((appointment) => {
-    return (
-      appointment.date === date &&
-      appointment.time === time &&
-      id &&
-      appointment.id !== id
-    );
-  });
-
+  let overlappingAppointment;
+  if (id)
+    overlappingAppointment = appointmentData.find((appointment) => {
+      return (
+        appointment.date === date &&
+        appointment.time === time &&
+        appointment.id !== id
+      );
+    });
+  else
+    overlappingAppointment = appointmentData.find((appointment) => {
+      return appointment.date === date && appointment.time === time;
+    });
   if (overlappingAppointment) {
     error = "Another appointment exist with same time";
   }
