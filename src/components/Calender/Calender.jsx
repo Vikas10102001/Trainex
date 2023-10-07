@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import "../../styles/calendar.css";
 import AppLayout from "../shared/ui/AppLayout";
 import MonthNavigation from "./MonthNavigation";
-import CalenderMain from "./CalenderMain";
+import CalenderMain from "./Main/CalenderMain";
 
 function Calendar({ clientAppointment }) {
   const currentDate = new Date();

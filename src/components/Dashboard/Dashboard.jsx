@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import AppLayout from "../shared/ui/AppLayout";
 import "../../styles/dashboard.css";
-import ClientAppointment from "./ClientAppointment";
+import DashboardMain from "./Main/DashboardMain";
 import DashboardTop from "./Top/DashboardTop";
 
 export default function Dashboard({ clientAppointment }) {
@@ -15,7 +15,7 @@ export default function Dashboard({ clientAppointment }) {
   return (
     <AppLayout>
       <DashboardTop clientAppointment={clientAppointment} />
-      <ClientAppointment
+      <DashboardMain
         clientAppointment={clientAppointment}
         filterObject={filterObject}
         setFilterObject={setFilterObject}

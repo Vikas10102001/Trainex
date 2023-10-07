@@ -1,5 +1,5 @@
 import React from "react";
-import Info from "./Info/Info";
+import Info from "../Info/Info";
 
 export default function Day({ currentMonth, day, clientAppointment }) {
   const current = new Date();
