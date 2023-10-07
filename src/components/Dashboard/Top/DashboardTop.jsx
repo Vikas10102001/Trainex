@@ -74,7 +74,6 @@ export default function DashboardTop({ clientAppointment }) {
     nextAppointment,
     nextAppointmentTime,
   } = calculateStat(clientAppointment);
-
   return (
     <div className="dashboard-top">
       <DashboardTopLeft
