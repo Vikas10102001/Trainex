@@ -48,7 +48,7 @@ function App() {
           element={<Dashboard clientAppointment={clientAppointment} />}
         />
         <Route
-          path="/calender"
+          path="/calendar"
           element={<Calender clientAppointment={clientAppointment} />}
         />
       </Routes>
