@@ -1,7 +1,6 @@
 import store from "../store/store";
 
 export const validateAppointmentTime = (date, time) => {
-  console.log(date, typeof time);
   let error = null;
   const current = new Date();
   const hr = +time.split(":")[0];
@@ -11,18 +10,15 @@ export const validateAppointmentTime = (date, time) => {
       if (hr < current.getHours()) error = "Invalid time";
 
       if (hr === current.getHours()) {
-        console.log(min < current.getMinutes());
         if (min < current.getMinutes()) error = "Invalid time";
       }
     }
   }
-  console.log(error);
   return error;
 };
 
 export const validateAppointmentData = ({ date, time, id }) => {
   const appointmentData = store.getState().appointment.data;
-  console.log(date, time, id);
   let error = null;
   let overlappingAppointment;
   if (id)
@@ -51,7 +47,6 @@ export const validateAppointmentTimeOnUpdate = ({ id, time }) => {
 };
 
 export const validateAppointmentDataOnUpdate = ({ id, updates }) => {
-  console.log(id, updates);
   const appointmentData = store.getState().appointment.data;
   const appointment = appointmentData.find((el) => el.id === id);
   const copy = { ...appointment };

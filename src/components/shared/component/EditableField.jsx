@@ -70,7 +70,6 @@ export default function EditableField({
         id: id,
         [fieldName]: e.target.value,
       });
-    console.log(minLength, e.target.value.length);
     if (minLength && minLength > e.target.value.length)
       error = `Allowed ${minLength}-${maxLength} characters`;
     setFieldError(error);

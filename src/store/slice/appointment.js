@@ -19,7 +19,6 @@ const appointmentSlice = createSlice({
     },
     deleteAppointment(state, action) {
       const { id } = action.payload;
-      console.log(id);
       const indexToDelete = state.data.findIndex(
         (appointment) => appointment.id === id
       );

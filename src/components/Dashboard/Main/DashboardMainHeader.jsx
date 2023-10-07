@@ -9,7 +9,6 @@ export default function DashboardMainHeader({
   filterObject,
   filterIsActive,
 }) {
-  console.log(filterIsActive);
   const [filterMenuVisiblity, setFilterMenuVisiblity] = useState(false);
   const handleSearchOnChange = (e) => {
     setFilterObject((prev) => {

@@ -51,7 +51,6 @@ export default function DashboardMain({
     )
       delete filteredClientsWithAppointment[ind];
   });
-  console.log(filterIsActive);
   return (
     <div className="dashboard-main">
       <DashboardMainHeader
