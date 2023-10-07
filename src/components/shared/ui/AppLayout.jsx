@@ -4,7 +4,7 @@ import Footer from "../../Layout/Footer";
 
 export default function AppLayout({ children }) {
   return (
-    <div>
+    <div className="app-layout">
       <Navbar />
       {children}
       <Footer />
