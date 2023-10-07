@@ -79,7 +79,7 @@ export default function CreateAppointment({ clientId }) {
       />
       <div className="buttons">
         <button type="reset" onClick={handleReset} className="reset ">
-          <Close style={{ fontSize: "14", color: "#515151" }} />
+          <Close style={{ fontSize: "12", color: "#515151",padding:"1px"}} />
         </button>
         <button
           type="submit"
