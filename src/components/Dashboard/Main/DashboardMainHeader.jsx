@@ -43,28 +43,30 @@ export default function DashboardMainHeader({
           Appointment
         </button>
       </div>
-
-      <div className="filter">
-        <input
-          type="search"
-          placeholder="Search by name"
-          onChange={handleSearchOnChange}
-          value={filterObject.name}
-        />
-        <div className="filter-container">
-          <FilterList
-            onClick={hanldeOnClickFilterMenu}
-            style={{ color: `${filterIsActive ? "blue" : "black"}` }}
+      {switchAppointment && (
+        <div className="filter">
+          <input
+            type="search"
+            placeholder="Search by name"
+            onChange={handleSearchOnChange}
+            value={filterObject.name}
           />
-          {filterMenuVisiblity && (
-            <FilterMenu
-              filterObject={filterObject}
-              setFilterObject={setFilterObject}
-              setFilterMenuVisiblity={setFilterMenuVisiblity}
+
+          <div className="filter-container">
+            <FilterList
+              onClick={hanldeOnClickFilterMenu}
+              style={{ color: `${filterIsActive ? "blue" : "black"}` }}
             />
-          )}
+            {filterMenuVisiblity && (
+              <FilterMenu
+                filterObject={filterObject}
+                setFilterObject={setFilterObject}
+                setFilterMenuVisiblity={setFilterMenuVisiblity}
+              />
+            )}
+          </div>
         </div>
-      </div>
+      )}
       {filterMenuVisiblity && (
         <div
           className="filter-background"
