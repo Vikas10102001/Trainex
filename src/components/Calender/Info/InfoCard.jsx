@@ -12,7 +12,6 @@ function compareTimes(a, b) {
   }
 }
 export default function InfoCard({ data, currentDate }) {
-    console.log(currentDate)
   const [countModalIsOpen, setCountModalIsOpen] = useState(false);
   const count = data.length;
   const handleCountOnClick = () => {
@@ -39,8 +38,8 @@ export default function InfoCard({ data, currentDate }) {
             </div>
           }
           isOpen={countModalIsOpen}
-          data={data.map((el) => (
-            <div className="info-card-data">
+          data={data.map((el, ind) => (
+            <div className="info-card-data" key={ind}>
               <span>{el.name}</span>
               <span>{formatTime(el.time)}</span>
             </div>
