@@ -3,16 +3,13 @@ import Info from "./Info/Info";
 
 export default function Day({ currentMonth, day, clientAppointment }) {
   const current = new Date();
-  const currentDate = new Date(
-    `${current.getMonth() + 1}/${day}/${current.getFullYear()}`
-  );
-  const currentDateString = currentDate.toLocaleDateString();
+  const currentDate =
+    `${currentMonth.getMonth()+1}/${day}/${current.getFullYear()}`
+  console.log(day)
   let clientAppointmentForDate = [];
   for (let el of clientAppointment) {
     el.appointments.forEach((appointment) => {
-      const appointmentDate = new Date(appointment.date);
-      const appointmentDateString = appointmentDate.toLocaleDateString();
-      if (currentDateString === appointmentDateString)
+      if (currentDate === appointment.date)
         clientAppointmentForDate.push({
           name: el.firstName + el.lastName,
           time: appointment.time,
@@ -33,7 +30,7 @@ export default function Day({ currentMonth, day, clientAppointment }) {
         <Info
           day={day}
           clientAppointmentForDate={clientAppointmentForDate}
-          currentDateString={currentDateString}
+          currentDateString={currentDate}
         />
       )}
     </div>
