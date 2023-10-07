@@ -43,6 +43,7 @@ export default function EditableField({
       error = validateAppointmentDataOnUpdate({ id, updates });
       if (error) dispatch(setAlert({ type: "error", message: error }));
       else
+      {
         dispatch(
           updateAppointment({
             id,
@@ -55,6 +56,7 @@ export default function EditableField({
           message: "Appointment updated successfully",
         })
       );
+      }
     }
   };
   const handleOnChange = (e) => {
@@ -89,29 +91,44 @@ export default function EditableField({
     }
   };
   return (
-    <>
-      {editMode ? (
-        <input
-          type={type}
-          value={inputData}
-          ref={inputRef}
-          maxLength={maxLength}
-          minLength={minLength}
-          onChange={(e) => {
-            handleOnChange(e);
-          }}
-          onBlur={handleBlur}
-          onKeyDown={handleKeyPress}
-        />
-      ) : (
-        fieldValue
-      )}
-      {editMode ? (
-        <CheckCircleOutline onClick={handleOnSave} />
-      ) : (
-        <EditOutlined onClick={handleEdit} />
-      )}
-      {fieldError && <p>{fieldError}</p>}
-    </>
+    <div className="editable-field">
+      <div className="field">
+        {editMode ? (
+          <input
+            type={type}
+            value={inputData}
+            ref={inputRef}
+            maxLength={maxLength}
+            minLength={minLength}
+            onChange={(e) => {
+              handleOnChange(e);
+            }}
+            onBlur={handleBlur}
+            onKeyDown={handleKeyPress}
+          />
+        ) : (
+          <span>{fieldValue}</span>
+        )}
+        <div className="button">
+          {editMode ? (
+            <CheckCircleOutline
+              onClick={handleOnSave}
+              style={{ fontSize: "16", color: "#515151", cursor: "pointer" }}
+            />
+          ) : (
+            <EditOutlined
+              onClick={handleEdit}
+              fontSize="12"
+              color="#515151"
+              style={{ fontSize: "16", color: "#515151", cursor: "pointer" }}
+            />
+          )}
+        </div>
+      </div>
+      <div className="error">
+        {" "}
+        {fieldError && <p className="error">{fieldError}</p>}
+      </div>
+    </div>
   );
 }
