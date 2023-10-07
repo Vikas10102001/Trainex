@@ -40,36 +40,44 @@ export default function FilterMenu({
       </div>
       <div className="filter-item">
         <label>Gender : </label>
-        <label>
-          <input
-            type="radio"
-            name="gender"
-            value="male"
-            onChange={handleOnGenderChange}
-            checked={gender === "male"}
-          />
-          Male
-        </label>
-        <label>
-          <input
-            type="radio"
-            name="gender"
-            value="female"
-            onChange={handleOnGenderChange}
-            checked={gender === "female"}
-          />
-          Female
-        </label>
-        <label>
-          <input
-            type="radio"
-            name="gender"
-            value="other"
-            onChange={handleOnGenderChange}
-            checked={gender === "other"}
-          />
-          Other
-        </label>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+          }}
+        >
+          <label>
+            <input
+              type="radio"
+              name="gender"
+              value="male"
+              onChange={handleOnGenderChange}
+              checked={gender === "male"}
+            />
+            Male
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="gender"
+              value="female"
+              onChange={handleOnGenderChange}
+              checked={gender === "female"}
+            />
+            Female
+          </label>
+          <label>
+            <input
+              type="radio"
+              name="gender"
+              value="other"
+              onChange={handleOnGenderChange}
+              checked={gender === "other"}
+            />
+            Other
+          </label>
+        </div>
       </div>
       <div className="filter-button">
         <button onClick={handleOnApply} className="primary">

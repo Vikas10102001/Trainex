@@ -369,4 +369,25 @@ li.table-row.client div {
     width: 110px;
     font-size: 10px;
   }
+  .filter-item{
+    padding:0.2rem 0.5rem;
+  }
+  .filter-menu{
+    margin: 0.5rem;
+  }
+  .filter-menu .filter-item label{
+    font-size: 12px;
+  }
+  .filter-button{
+    padding: 0.3rem 0.5rem;
+  }
+  .filter-button button{
+    padding:0.3rem 0.5rem;
+  }
+}
+@media screen and (max-width: 375px){
+.filter-item{
+  flex-direction: column;
+  align-items: flex-start;
+}
 }
