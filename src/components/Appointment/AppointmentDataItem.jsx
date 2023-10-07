@@ -54,31 +54,29 @@ export default function AppointmentDataItem({ index, appointment }) {
           />
         </div>
       </li>
-      {modalIsOpen && (
-        <Modal
-          isOpen={modalIsOpen}
-          onConfirm={handleOnConfirm}
-          onCancel={handleOnCancel}
-          title={"Confirm Delete"}
-          data={<p>Are you sure ?</p>}
-          footer={
-            <>
-              <button
-                className="confirm-modal-btn danger"
-                onClick={handleOnConfirm}
-              >
-                Confirm
-              </button>
-              <button
-                className="confirm-modal-btn delete secondary"
-                onClick={handleOnCancel}
-              >
-                Cancel
-              </button>
-            </>
-          }
-        />
-      )}
+      <Modal
+        isOpen={modalIsOpen}
+        onConfirm={handleOnConfirm}
+        onCancel={handleOnCancel}
+        title={"Confirm Delete"}
+        data={<p>Are you sure ?</p>}
+        footer={
+          <>
+            <button
+              className="confirm-modal-btn danger"
+              onClick={handleOnConfirm}
+            >
+              Confirm
+            </button>
+            <button
+              className="confirm-modal-btn delete secondary"
+              onClick={handleOnCancel}
+            >
+              Cancel
+            </button>
+          </>
+        }
+      />
     </>
   );
 }

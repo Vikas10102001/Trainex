@@ -28,24 +28,22 @@ export default function InfoCard({ data, currentDate }) {
       <div onClick={handleCountOnClick} className="info-card-link">
         {count + " " + str}
       </div>
-      {countModalIsOpen && (
-        <Modal
-          onCancel={handleModalOnCancel}
-          title={
-            <div className="info-card-title">
-              <span>Appointments details</span>
-              <span className="info-card-date">{formatDate(currentDate)}</span>
-            </div>
-          }
-          isOpen={countModalIsOpen}
-          data={data.map((el, ind) => (
-            <div className="info-card-data" key={ind}>
-              <span>{el.name}</span>
-              <span>{formatTime(el.time)}</span>
-            </div>
-          ))}
-        />
-      )}
+      <Modal
+        onCancel={handleModalOnCancel}
+        title={
+          <div className="info-card-title">
+            <span>Appointments details</span>
+            <span className="info-card-date">{formatDate(currentDate)}</span>
+          </div>
+        }
+        isOpen={countModalIsOpen}
+        data={data.map((el, ind) => (
+          <div className="info-card-data" key={ind}>
+            <span>{el.name}</span>
+            <span>{formatTime(el.time)}</span>
+          </div>
+        ))}
+      />
     </div>
   );
 }
