@@ -3,6 +3,7 @@ import { KeyboardArrowDown, KeyboardArrowUp } from "@mui/icons-material";
 import CreateAppointment from "./CreateAppointment";
 import AppointmentData from "./AppointmentData";
 import EditableField from "../shared/component/EditableField";
+import Card from "../shared/ui/Card";
 
 function AppointmentTable({ clientAppointment }) {
   const [showAppointmentData, setShowAppointmentData] = useState({});
@@ -14,56 +15,53 @@ function AppointmentTable({ clientAppointment }) {
     }));
   };
   return (
-    <table>
-      <thead>
-        <tr>
-          <th>First Name</th>
-          <th>Last Name</th>
-          <th>Location</th>
-          <th>Total appointments</th>
-        </tr>
-      </thead>
-      <tbody>
+    <Card>
+      <ul className="table">
+        <li className="table-header">
+          <div>First Name</div>
+          <div>Last Name</div>
+          <div>Location</div>
+          <div>Total Appointments</div>
+        </li>
         {clientAppointment.map((item) => (
           <React.Fragment key={item.clientId}>
-            <tr>
-              <td>
-                <EditableField
-                  type={"text"}
-                  initialData={item.firstName}
-                  fieldName={"firstName"}
-                  fieldValue={item.firstName}
-                  updateType={"client"}
-                  id={item.clientId}
-                  maxLength={15}
-                  minLength={2}
-                />
-              </td>
-              <td>
-                <EditableField
-                  type={"text"}
-                  initialData={item.lastName}
-                  fieldName={"lastName"}
-                  fieldValue={item.lastName}
-                  updateType={"client"}
-                  id={item.clientId}
-                  maxLength={15}
-                />
-              </td>
-              <td>
-                <EditableField
-                  type={"text"}
-                  initialData={item.location}
-                  fieldName={"address"}
-                  fieldValue={item.location}
-                  updateType={"client"}
-                  id={item.clientId}
-                  maxLength={50}
-                />
-              </td>
-              <td>
-                {item.appointments.length}{" "}
-                <button onClick={() => toggleArrowButton(item.clientId)}>
+            <li className="table-row">
+              <EditableField
+                type={"text"}
+                initialData={item.firstName}
+                fieldName={"firstName"}
+                fieldValue={item.firstName}
+                updateType={"client"}
+                id={item.clientId}
+                maxLength={15}
+                minLength={2}
+              />
+
+              <EditableField
+                type={"text"}
+                initialData={item.lastName}
+                fieldName={"lastName"}
+                fieldValue={item.lastName}
+                updateType={"client"}
+                id={item.clientId}
+                maxLength={15}
+              />
+
+              <EditableField
+                type={"text"}
+                initialData={item.location}
+                fieldName={"address"}
+                fieldValue={item.location}
+                updateType={"client"}
+                id={item.clientId}
+                maxLength={50}
+              />
+              <div className="table-row-item manage">
+                <span>{item.appointments.length}</span>
+                <button
+                  className="primary"
+                  onClick={() => toggleArrowButton(item.clientId)}
+                >
                   <span>Manage</span>
                   {showAppointmentData[item.clientId] ? (
                     <KeyboardArrowUp />
@@ -71,21 +69,22 @@ function AppointmentTable({ clientAppointment }) {
                     <KeyboardArrowDown />
                   )}
                 </button>
-              </td>
-            </tr>
+              </div>
+            </li>
             {showAppointmentData[item.clientId] && (
               <>
-                <tr style={{ border: "1px solid black" }}>
-                  <td colSpan="4">
+                <li className="table-row appointment">
+                  <h4>Appointments</h4>
+                  <div colSpan="4" className="create-appointment">
                     <CreateAppointment clientId={item.clientId} />
-                  </td>
-                </tr>
+                  </div>
+                </li>
                 {item.appointments.length !== 0 ? (
-                  <tr>
-                    <td colSpan="4">
+                  <li className="table-row appointment">
+                    <div colSpan="4">
                       <AppointmentData item={item} />
-                    </td>
-                  </tr>
+                    </div>
+                  </li>
                 ) : (
                   <></>
                 )}
@@ -93,8 +92,8 @@ function AppointmentTable({ clientAppointment }) {
             )}
           </React.Fragment>
         ))}
-      </tbody>
-    </table>
+      </ul>
+    </Card>
   );
 }
 
