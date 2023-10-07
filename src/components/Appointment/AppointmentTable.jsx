@@ -23,77 +23,83 @@ function AppointmentTable({ clientAppointment }) {
           <div>Location</div>
           <div>Total Appointments</div>
         </li>
-        {clientAppointment.map((item) => (
-          <React.Fragment key={item.clientId}>
-            <li className="table-row">
-              <EditableField
-                type={"text"}
-                initialData={item.firstName}
-                fieldName={"firstName"}
-                fieldValue={item.firstName}
-                updateType={"client"}
-                id={item.clientId}
-                maxLength={15}
-                minLength={2}
-              />
+        {clientAppointment.length === 0 ? (
+          <p className="no-data">No appoitnments</p>
+        ) : (
+          <>
+            {clientAppointment.map((item) => (
+              <React.Fragment key={item.clientId}>
+                <li className="table-row">
+                  <EditableField
+                    type={"text"}
+                    initialData={item.firstName}
+                    fieldName={"firstName"}
+                    fieldValue={item.firstName}
+                    updateType={"client"}
+                    id={item.clientId}
+                    maxLength={15}
+                    minLength={2}
+                  />
 
-              <EditableField
-                type={"text"}
-                initialData={item.lastName}
-                fieldName={"lastName"}
-                fieldValue={item.lastName}
-                updateType={"client"}
-                id={item.clientId}
-                maxLength={15}
-                minLength={2}
-              />
+                  <EditableField
+                    type={"text"}
+                    initialData={item.lastName}
+                    fieldName={"lastName"}
+                    fieldValue={item.lastName}
+                    updateType={"client"}
+                    id={item.clientId}
+                    maxLength={15}
+                    minLength={2}
+                  />
 
-              <EditableField
-                type={"text"}
-                initialData={item.location}
-                fieldName={"address"}
-                fieldValue={item.location}
-                updateType={"client"}
-                id={item.clientId}
-                maxLength={50}
-                minLength={5}
-              />
-              <div className="table-row-item manage">
-                <span>{item.appointments.length}</span>
-                <button
-                  className="primary"
-                  onClick={() => toggleArrowButton(item.clientId)}
-                >
-                  <span>Manage</span>
-                  {showAppointmentData[item.clientId] ? (
-                    <KeyboardArrowUp />
-                  ) : (
-                    <KeyboardArrowDown />
-                  )}
-                </button>
-              </div>
-            </li>
-            {showAppointmentData[item.clientId] && (
-              <>
-                <li className="table-row appointment">
-                  <h4>Appointments</h4>
-                  <div colSpan="4" className="create-appointment">
-                    <CreateAppointment clientId={item.clientId} />
+                  <EditableField
+                    type={"text"}
+                    initialData={item.location}
+                    fieldName={"address"}
+                    fieldValue={item.location}
+                    updateType={"client"}
+                    id={item.clientId}
+                    maxLength={50}
+                    minLength={5}
+                  />
+                  <div className="table-row-item manage">
+                    <span>{item.appointments.length}</span>
+                    <button
+                      className="primary"
+                      onClick={() => toggleArrowButton(item.clientId)}
+                    >
+                      <span>Manage</span>
+                      {showAppointmentData[item.clientId] ? (
+                        <KeyboardArrowUp />
+                      ) : (
+                        <KeyboardArrowDown />
+                      )}
+                    </button>
                   </div>
                 </li>
-                {item.appointments.length !== 0 ? (
-                  <li className="table-row appointment">
-                    <div colSpan="4">
-                      <AppointmentData item={item} />
-                    </div>
-                  </li>
-                ) : (
-                  <></>
+                {showAppointmentData[item.clientId] && (
+                  <>
+                    <li className="table-row appointment">
+                      <h4>Appointments</h4>
+                      <div colSpan="4" className="create-appointment">
+                        <CreateAppointment clientId={item.clientId} />
+                      </div>
+                    </li>
+                    {item.appointments.length !== 0 ? (
+                      <li className="table-row appointment">
+                        <div colSpan="4">
+                          <AppointmentData item={item} />
+                        </div>
+                      </li>
+                    ) : (
+                      <></>
+                    )}
+                  </>
                 )}
-              </>
-            )}
-          </React.Fragment>
-        ))}
+              </React.Fragment>
+            ))}
+          </>
+        )}
       </ul>
     </Card>
   );

@@ -19,7 +19,6 @@ function calculateStat(clientAppointments) {
   let client = null;
   for (const clientAppointment of clientAppointments) {
     for (const appointment of clientAppointment.appointments) {
-
       const dateParts = appointment.date.split("/");
       const timeParts = appointment.time.split(":");
       const appointmentDate = new Date(
@@ -50,13 +49,15 @@ function calculateStat(clientAppointments) {
       }
     }
   }
-  const nextAppointmentTime = `${nextAppointment.getHours()}:${nextAppointment.getMinutes()}`;
-  if (nextAppointment.getDate() === currentDate.getDate())
-    nextAppointment = "Today";
-  else if (nextAppointment.getDate() === currentDate.getDate() + 1)
-    nextAppointment = "Tomorrow";
-  else nextAppointment = nextAppointment.toLocaleDateString();
-
+  let nextAppointmentTime = null;
+  if (nextAppointment) {
+    nextAppointmentTime = `${nextAppointment.getHours()}:${nextAppointment.getMinutes()}`;
+    if (nextAppointment.getDate() === currentDate.getDate())
+      nextAppointment = "Today";
+    else if (nextAppointment.getDate() === currentDate.getDate() + 1)
+      nextAppointment = "Tomorrow";
+    else nextAppointment = nextAppointment.toLocaleDateString();
+  }
   return {
     todayAppointments,
     weeklyAppointments,

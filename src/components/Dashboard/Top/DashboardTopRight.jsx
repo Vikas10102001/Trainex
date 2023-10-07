@@ -15,23 +15,31 @@ export default function DashboardTopRight({
   client,
 }) {
   let formatDateAndTime = nextAppointment;
-  if (nextAppointment !== "Today" && nextAppointment != "Tomorrow")
-    formatDate(nextAppointment);
+  if (
+    nextAppointment &&
+    nextAppointment !== "Today" &&
+    nextAppointment != "Tomorrow"
+  )
+    formatDateAndTime = formatDate(nextAppointment);
   return (
     <Card additionalStyles={additionalStyles}>
       <div className="data-heading">Next Appointment</div>
-      <div className="data-items">
-        <div className="data-item">
-          <span className="value">{formatDateAndTime}</span>
+      {nextAppointment ? (
+        <div className="data-items">
+          <div className="data-item">
+            <span className="value">{formatDateAndTime}</span>
+          </div>
+          <div className="data-item">
+            <span className="value">{formatTime(nextAppointmentTime)}</span>
+          </div>
+          <div className="data-item">
+            <span className="key">With </span>
+            <span className="value">{client}</span>
+          </div>
         </div>
-        <div className="data-item">
-          <span className="value">{formatTime(nextAppointmentTime)}</span>
-        </div>
-        <div className="data-item">
-          <span className="key">With </span>
-          <span className="value">{client}</span>
-        </div>
-      </div>
+      ) : (
+        <div className="data-items">No Appointment</div>
+      )}
     </Card>
   );
 }
