@@ -1,25 +1,5 @@
-// import React, { useState } from 'react';
-
-// function GenderSelection() {
-//   const [selectedGender, setSelectedGender] = useState('');
-
-//   const handleGenderChange = (event) => {
-//     setSelectedGender(event.target.value);
-//   };
-
-//   return (
-//     <div>
-//       <h2>Select your gender:</h2>
-
-//       <p>Selected Gender: {selectedGender}</p>
-//     </div>
-//   );
-// }
-
-// export default GenderSelection;
-
 import React, { useState } from "react";
-
+import Card from "../shared/ui/Card";
 export default function FilterMenu({
   filterObject,
   setFilterObject,
@@ -48,9 +28,9 @@ export default function FilterMenu({
     });
   };
   return (
-    <div className="filter-menu">
+    <Card className={"filter-menu"}>
       <div className="filter-item">
-        <label htmlFor="date">Appointment Date:</label>
+        <label htmlFor="date">Appointment Date :&nbsp;</label>
         <input
           type="date"
           id="date"
@@ -59,7 +39,7 @@ export default function FilterMenu({
         />
       </div>
       <div className="filter-item">
-        <label>Gender:</label>
+        <label>Gender : </label>
         <label>
           <input
             type="radio"
@@ -91,10 +71,14 @@ export default function FilterMenu({
           Other
         </label>
       </div>
-      <div className="filter-item">
-        <button onClick={handleOnApply}>Apply</button>
-        <button onClick={handleOnReset}>Reset</button>
+      <div className="filter-button">
+        <button onClick={handleOnApply} className="primary">
+          Apply
+        </button>
+        <button onClick={handleOnReset} className="secondary">
+          Reset
+        </button>
       </div>
-    </div>
+    </Card>
   );
 }
