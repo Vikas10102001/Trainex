@@ -21,14 +21,14 @@
   cursor: pointer;
   font-size: 1.25rem;
   font-weight: 900;
-  background-color: #007bff;
+  background: #007bff;
   color: white;
   border: 3px solid #007bff;
   border-radius: 50%;
   transition: all 0.2s;
 }
 .month-navigation button:hover {
-  background-color: white;
+  background: white;
   color: #007bff;
   border-color: #007bff;
   transform: translateY(-10%);
@@ -66,6 +66,9 @@
   font-weight: bold;
   font-size: 17px;
   color: #007bff;
+}
+.left-column button:hover{
+  color: #424242;
 }
 .right-column {
   flex: 10;
@@ -112,14 +115,14 @@
 }
 .day.appointment-date {
   background-color: #007bff3d;
-  border: 2px solid #3295ff;
+  border: 1px solid #3295ff;
 }
 
 /* info */
 .info-card-link {
   cursor: pointer;
   display: inline-block;
-  color: #2e2efe;
+  color: #007bff;
 
   font-size: 1rem;
   font-weight: 500;
@@ -131,7 +134,10 @@
 .info-card-data {
   display: flex;
   justify-content: space-between;
+  margin: 0.5rem 0;
+  font-size: 15px;
 }
+
 .info-card-title {
   display: flex;
   justify-content: space-between;
