@@ -12,9 +12,10 @@ export default function DashboradTopLeft({
   todayAppointments,
   weeklyAppointments,
 }) {
+  const trainer = "Vikas";
   return (
     <Card additionalStyles={additionalStyles} className={"dashboard-top-left"}>
-      <div className="data-heading">Welcome Vikas !</div>
+      <div className="data-heading">Welcome {trainer}</div>
       <div className="data-items">
         <div className="data-item">
           <p className="key">

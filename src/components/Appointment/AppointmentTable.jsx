@@ -16,12 +16,12 @@ function AppointmentTable({ clientAppointment }) {
   };
   return (
     <Card className={"table-card"}>
-      <ul className="table">
+      <ul className="table client-appointment">
         <li className="table-header">
           <div>First Name</div>
           <div>Last Name</div>
           <div>Location</div>
-          <div>Total Appointments</div>
+          <div>Appointments</div>
         </li>
         {clientAppointment.length === 0 ? (
           <p className="no-data">No appoitnments</p>

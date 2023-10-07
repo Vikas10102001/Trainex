@@ -19,7 +19,6 @@
 .month-navigation button {
   background: none;
   cursor: pointer;
-  font-size: 1.25rem;
   font-weight: 900;
   background: #007bff;
   color: white;
@@ -72,6 +71,7 @@
 }
 .right-column {
   flex: 10;
+  overflow: hidden;
 }
 .days-of-week {
   display: flex;
@@ -105,10 +105,16 @@
   display: flex;
   justify-content: space-between;
   flex-direction: column;
+  min-height: 70px;
+  min-width: 100px;
 }
 .day .date {
   font-size: 1.5rem;
   font-weight: bold;
+}
+.day-of-week {
+  min-width: 100px;
+  min-height: 35px;
 }
 .day.current-date {
   background-color: #f0f0f0;
@@ -117,13 +123,16 @@
   background-color: #007bff3d;
   border: 1px solid #3295ff;
 }
+.day-of-week,
+.day {
+  box-sizing: border-box;
+}
 
 /* info */
 .info-card-link {
   cursor: pointer;
   display: inline-block;
   color: #007bff;
-  font-size: 1rem;
 }
 
 .info-card-link:hover {
@@ -142,4 +151,71 @@
 }
 .info-card-date {
   font-size: 14px;
+}
+
+@media screen and (max-width: 890px) {
+  .right-column {
+    overflow-x: scroll;
+  }
+}
+@media screen and (max-width: 750px) {
+  .day .date {
+    font-size: 1.25rem;
+  }
+  .info-card-link {
+    font-size: 0.9rem;
+  }
+  .right-column {
+    overflow: scroll;
+  }
+}
+
+@media screen and (max-width: 655px) {
+  .left-column {
+    display: none;
+  }
+  .month-navigation {
+    margin-top: 1rem;
+  }
+  .month-navigation button {
+    padding: 0.2rem 0.4rem;
+  }
+  .month-navigation h1 {
+    margin: 0 1rem;
+    font-size: 1.5rem;
+  }
+}
+
+@media screen and (max-width: 500px) {
+  .day .date {
+    font-size: 1rem;
+  }
+  .month-navigation h1 {
+    margin: 0 0.5rem;
+    font-size: 1.2rem;
+  }
+  .month-navigation button {
+    padding: 0.1rem 0.2rem;
+  }
+  .info-card-title {
+    font-size: 14px;
+  }
+  .info-card-date {
+    font-size: 12px;
+  }
+}
+@media screen and (min-height: 800px) {
+  .calendar {
+    position: relative;
+    top: 6vh;
+  }
+  .calendar-container {
+    position: relative;
+    top: 2vh;
+  }
+}
+@media screen and (min-height: 915px) {
+  .calendar-container {
+    top: 8vh;
+  }
 }

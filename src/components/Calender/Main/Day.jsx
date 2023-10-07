@@ -3,14 +3,15 @@ import Info from "../Info/Info";
 
 export default function Day({ currentMonth, day, clientAppointment }) {
   const current = new Date();
-  const currentDate =
-    `${currentMonth.getMonth()+1}/${day}/${current.getFullYear()}`
+  const currentDate = `${
+    currentMonth.getMonth() + 1
+  }/${day}/${current.getFullYear()}`;
   let clientAppointmentForDate = [];
   for (let el of clientAppointment) {
     el.appointments.forEach((appointment) => {
       if (currentDate === appointment.date)
         clientAppointmentForDate.push({
-          name: el.firstName + el.lastName,
+          name: el.firstName + " " + el.lastName,
           time: appointment.time,
         });
     });

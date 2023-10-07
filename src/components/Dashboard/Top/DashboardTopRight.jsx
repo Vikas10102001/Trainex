@@ -22,7 +22,7 @@ export default function DashboardTopRight({
   )
     formatDateAndTime = formatDate(nextAppointment);
   return (
-    <Card additionalStyles={additionalStyles}>
+    <Card additionalStyles={additionalStyles} className={"dashboard-top-right"}>
       <div className="data-heading">Next Appointment</div>
       {nextAppointment ? (
         <div className="data-items">

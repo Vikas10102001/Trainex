@@ -17,6 +17,7 @@ body {
 
 ::-webkit-scrollbar {
   width: 5px;
+  height: 5px;
 }
 
 ::-webkit-scrollbar-track {
@@ -39,6 +40,9 @@ body {
   height: 100vh;
   overflow: scroll;
   overflow-x: hidden;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
 }
 a {
   text-decoration: none;
@@ -117,6 +121,7 @@ a {
   border-radius: 15px;
   border: 1px solid rgba(5, 5, 5, 0.1);
   box-shadow: 9px 2px 40px 1px rgba(0, 0, 0, 0.07);
+  height: fit-content;
 }
 
 /* button */
@@ -205,7 +210,7 @@ button.danger:hover {
   position: relative;
 }
 .editable-field .field {
-  width: 100%;
+  width: 80%;
   display: flex;
   justify-content: space-around;
   align-items: center;
@@ -222,6 +227,7 @@ button.danger:hover {
   right: 1rem;
 }
 
+/* input */
 input[type="search"],
 input[type="date"] {
   padding: 0.25rem 1rem 0.25rem 0.35rem;
@@ -246,4 +252,28 @@ input[type="time"] {
   color: #d44b4b;
   font-size: 12px;
   margin: 0;
+}
+@media screen and (max-width: 780px) 
+{
+  .alert{
+    padding: 0.6rem 2rem;
+    width: max-content;
+  }
+}
+@media screen and (max-width: 500px) {
+  .modal-card {
+    max-width: 80vw;
+  }
+  .alert{
+    padding: 0.6rem 1rem;
+    width: 200px;
+  }
+}
+
+@media screen and (max-width: 450px)
+{
+  .modal-card button{
+    margin: 0 0.25rem;
+    padding: 0.25rem 0.5rem;
+  }
 }

@@ -20,8 +20,7 @@ export default function InfoCard({ data, currentDate }) {
   const handleModalOnCancel = () => {
     setCountModalIsOpen(false);
   };
-  let str = "appointment";
-  if (count > 1) str = str + "s";
+  let str = "scheduled";
   data.sort(compareTimes);
   return (
     <div>

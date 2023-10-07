@@ -45,3 +45,35 @@
   font-size: 1.65rem;
 }
 
+@media screen and (max-width: 750px) {
+  .navbar .right {
+    padding-right: 1rem;
+  }
+  .navbar button {
+    margin: 0 0.25rem;
+  }
+  .navbar .left {
+    padding-left: 1rem;
+  }
+}
+@media screen and (max-width: 500px) {
+  .navbar .logo-name {
+    font-size: 1.25rem;
+  }
+  .navbar .logo a img {
+    width: 40px;
+    height: 40px;
+  }
+  .navbar button {
+    font-size: 14px;
+    margin: 0 0.10rem;
+    padding: 0.25rem 0.5rem;
+  }
+}
+@media screen and (max-width: 305px)
+{
+  .navbar .right {
+    position: relative;
+    left:15%;
+  }
+}

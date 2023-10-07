@@ -1,17 +1,23 @@
 .dashboard-top {
   display: flex;
+  position: relative;
   justify-content: space-between;
   height: 32vh;
   width: 80vw;
-  position: relative;
-  left: 50%;
-  transform: translateX(-40vw);
   box-sizing: border-box;
 }
 .dashboard-top .data-heading {
   font-size: 1.5rem;
   font-weight: bold;
   color: #007bff;
+  text-align: center;
+}
+.dashboard-top-left,
+.dashboard-top-right,
+.dashboard-top-middle .card {
+  height: 13rem;
+  padding: 0.5rem;
+  box-sizing: border-box;
 }
 .dashboard-top-middle {
   flex: 2;
@@ -123,14 +129,6 @@
   padding: 0.4rem 0.65rem;
 }
 
-.table-card {
-  overflow: hidden;
-}
-ul.table {
-  list-style-type: none;
-  padding: 0;
-  margin: 0;
-}
 ul.table .no-data {
   text-align: center;
 }
@@ -149,11 +147,18 @@ li.table-row {
   border-bottom: 1px solid #ddd;
   padding: 0.2rem 0;
 }
-
 li.table-row div,
 li.table-header div {
   flex: 1;
   text-align: center;
+}
+.table.client-appointment li.table-row div:nth-child(3),
+.table.client-appointment li.table-header div:nth-child(3) {
+  flex-grow: 2;
+}
+.table.appointment li.table-row div:nth-child(3),
+.table.appointment li.table-header div:nth-child(3) {
+  flex-grow: 1;
 }
 li.table-header div {
   color: #515151;
@@ -166,6 +171,7 @@ li .table-row-item {
   justify-content: center;
   align-items: center;
 }
+
 li.table-row button {
   display: flex;
   justify-content: center;
@@ -192,6 +198,7 @@ li.table-row span {
 li.table-row.client div {
   font-size: 14px;
 }
+
 /* Create appointment */
 .create-appointment {
   display: flex;
@@ -236,4 +243,130 @@ li.table-row.client div {
 }
 .confirm-modal-btn {
   margin: 0 0.75rem;
+}
+
+@media screen and (max-width: 1050px) {
+  .dashboard-top-middle {
+    flex-direction: column;
+    height: 13rem;
+    flex: 1;
+    margin: 1rem 0;
+    justify-content: space-between;
+  }
+  .dashboard-top-middle button {
+    padding: 0.25rem 0.5rem;
+    font-size: 13px;
+    margin-top: 0.5rem;
+  }
+  .dashboard-top-middle .card {
+    margin: 0;
+    box-sizing: border-box;
+  }
+  .dashboard-top-middle .card p {
+    margin: 0;
+    font-size: 13px;
+  }
+  .dashboard-top-middle div:nth-child(2) {
+    margin-top: 1rem;
+  }
+}
+@media screen and (max-width: 950px) {
+  .dashboard-main .table-data,
+  .dashboard-top,
+  .dashboard-main .header {
+    width: 90%;
+  }
+  li .table-row-item.manage button {
+    padding: 0.05rem 0.5rem;
+  }
+  li .table-row-item.manage button span {
+    font-size: 14px;
+  }
+}
+
+@media screen and (max-width: 755px) {
+  ul.table {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+  }
+  .dashboard-top-middle {
+    width: 90vw;
+    position: absolute;
+    top: 80%;
+    flex-direction: row;
+  }
+  .dashboard-top-middle .card {
+    height: max-content;
+    margin: 1rem 0.5rem;
+    box-sizing: border-box;
+  }
+  .dashboard-top-left.card,
+  .dashboard-top-right.card {
+    height: max-content;
+    min-height: 10rem;
+    margin: 0.5rem;
+  }
+  .dashboard-top-left.card .key {
+    margin: 0.4rem 0;
+  }
+  .dashboard-main {
+    position: relative;
+    top: 10%;
+  }
+  .filter {
+    margin-right: 3rem;
+  }
+  .filter input[type="search"] {
+    width: 150px;
+  }
+}
+
+@media screen and (max-width: 635px) {
+  .dashboard-top-middle .card {
+    min-height: 85.6px;
+  }
+  .dashboard-top .data-heading {
+    font-size: 1.2rem;
+  }
+  .dashboard-top .card .key {
+    font-size: 13px;
+  }
+  .dashboard-top-right .value {
+    font-size: 13px;
+  }
+  .dashboard-main {
+    top: 12%;
+  }
+  .dashboard-main .switch button {
+    font-size: 10px;
+    margin-left: 0;
+  }
+}
+@media screen and (max-width: 480px) {
+  .dashboard-top .data-heading {
+    font-size: 1rem;
+  }
+  .dashboard-top-middle .card {
+    min-height: 103.2px;
+  }
+  .dashboard-main .switch button span {
+    display: none;
+  }
+  .dashboard-main .switch button *{
+    font-size: 14px;
+  }
+  .dashboard-main .header {
+    align-items: baseline;
+  }
+  .filter {
+    margin-right: 3rem;
+  }
+  .dashboard-main {
+    top: 14%;
+  }
+  .filter input[type="search"] {
+    width: 110px;
+    font-size: 10px;
+  }
 }

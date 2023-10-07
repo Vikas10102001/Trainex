@@ -32,14 +32,14 @@ export default function DashboardMainHeader({
           onClick={handleClientSwitch}
         >
           <Person />
-          Client
+          <span>Client</span>
         </button>
         <button
           onClick={handleAppointmentSwitch}
           className={`${switchAppointment ? "active" : ""}`}
         >
           <EditCalendar />
-          Appointment
+          <span>Appointment</span>
         </button>
       </div>
       {switchAppointment && (

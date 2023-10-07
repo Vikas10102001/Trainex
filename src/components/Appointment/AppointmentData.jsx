@@ -1,7 +1,7 @@
 import AppointmentDataItem from "./AppointmentDataItem";
 export default function AppointmentData({ item }) {
   return (
-    <ul className="table">
+    <ul className="table appointment">
       <li className="table-header">
         <div>No.</div>
         <div>Date</div>

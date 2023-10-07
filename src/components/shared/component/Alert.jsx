@@ -17,5 +17,5 @@ export default function Alert({ data}) {
       clearTimeout(timer);
     };
   }, [dispatch]);
-  return visible ? <div className={`alert alert_${data.type}`}>{data.message}</div> : null;
+  return visible ? <div className={`alert alert_$`}>{data.message}</div> : null;
 }
