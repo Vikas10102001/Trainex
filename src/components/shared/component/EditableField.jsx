@@ -38,7 +38,7 @@ export default function EditableField({
       if (!fieldError) {
         dispatch(updateClient({ id, updates }));
         dispatch(
-          setAlert({ type: "info", message: "Client updated sucessfully" })
+          setAlert({ type: "success", message: "Client updated sucessfully" })
         );
       } else setInputData(initialData);
     }

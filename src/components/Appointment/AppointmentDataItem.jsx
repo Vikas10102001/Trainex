@@ -16,7 +16,7 @@ export default function AppointmentDataItem({ index, appointment }) {
   const handleOnConfirm = () => {
     dispatch(deleteAppointment({ id: deleteId }));
     dispatch(
-      setAlert({ type: "info", message: "Appointment deleted successfully" })
+      setAlert({ type: "success", message: "Appointment deleted successfully" })
     );
   };
   const handleOnCancel = () => {
