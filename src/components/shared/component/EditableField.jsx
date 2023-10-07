@@ -34,28 +34,31 @@ export default function EditableField({
     let updates = { [fieldName]: inputData };
     let error;
     if (updateType === "client") {
-      if (!fieldError) dispatch(updateClient({ id, updates }));
-      else setInputData(initialData);
+      if (!fieldError) {
+        dispatch(updateClient({ id, updates }));
+        dispatch(
+          setAlert({ type: "info", message: "Client updated sucessfully" })
+        );
+      } else setInputData(initialData);
     }
     if (type === "date")
       updates = { date: new Date(inputData).toLocaleDateString() };
     if (updateType === "appoint") {
       error = validateAppointmentDataOnUpdate({ id, updates });
       if (error) dispatch(setAlert({ type: "error", message: error }));
-      else
-      {
+      else {
         dispatch(
           updateAppointment({
             id,
             updates,
           })
         );
-      dispatch(
-        setAlert({
-          type: "success",
-          message: "Appointment updated successfully",
-        })
-      );
+        dispatch(
+          setAlert({
+            type: "success",
+            message: "Appointment updated successfully",
+          })
+        );
       }
     }
   };
