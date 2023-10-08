@@ -61,8 +61,8 @@ The Dashboard has two sections:
   2. Address: Must be 5-50 characters.
   3. Appointment Date and Time: Cannot be a time that has already passed. When creating an appointment, the date and time must not overlap with existing data. Error messages will be shown if any of these rules are violated.
 
-<img src="screenshots\appointment-creation-error.jpg"> <img src="screenshots\appointment-creation.jpg">
-<img src="screenshots\appointment-deletion.jpg"> <img src="screenshots\appointment-validation-1.jpg">
+<img src="screenshots\appointment-creation-error.jpg">|<img src="screenshots\appointment-creation.jpg">
+<img src="screenshots\appointment-deletion.jpg">|<img src="screenshots\appointment-validation-1.jpg">
 <img src="screenshots\client-validation-1.jpg">
 
 ### Calendar
@@ -75,7 +75,7 @@ This page contains the implementation of the bonus feature, a calendar that can 
 
 - There is an info card that displays the names of clients and appointment times for a particular date. This card becomes visible when you click on the text indicating the total appointments for the day.
 
-<img src="screenshots\info-link.jpg"> <img src="screenshots\info-card.jpg">
+<img src="screenshots\info-link.jpg">|<img src="screenshots\info-card.jpg">
 
 ## Things to Consider
 
