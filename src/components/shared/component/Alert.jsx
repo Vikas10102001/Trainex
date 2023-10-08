@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { setAlert } from "../../../store/store";
 
-export default function Alert({ data}) {
+export default function Alert({ data }) {
   const [visible, setVisible] = useState(true);
   const dispatch = useDispatch();
 
@@ -17,5 +17,7 @@ export default function Alert({ data}) {
       clearTimeout(timer);
     };
   }, [dispatch]);
-  return visible ? <div className={`alert alert_$`}>{data.message}</div> : null;
+  return visible ? (
+    <div className={`alert alert_${data.type}`}>{data.message}</div>
+  ) : null;
 }
