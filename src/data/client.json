@@ -1,92 +1,92 @@
 [
   {
     "id": 1,
-    "firstName": "John",
-    "lastName": "Doe",
-    "DOB": "1990-05-15",
+    "firstName": "Amit",
+    "lastName": "Kumar",
+    "DOB": "05/15/1990",
     "gender": "Male",
-    "address": "123 Main Street, New York, USA",
-    "profileImg": "https://example.com/john-doe-image.jpg"
+    "address": "456 Red Rose Avenue, Mumbai, India",
+    "contact": "+91-1234567890"
   },
   {
     "id": 2,
-    "firstName": "Jane",
-    "lastName": "Smith",
-    "DOB": "1985-08-20",
+    "firstName": "Priya",
+    "lastName": "Sharma",
+    "DOB": "08/20/1985",
     "gender": "Female",
-    "address": "456 Elm Avenue, San Francisco, USA",
-    "profileImg": "https://example.com/jane-smith-image.jpg"
+    "address": "789 Lotus Lane, Delhi, India",
+    "contact": "+91-9876543210"
   },
   {
     "id": 3,
     "firstName": "Bob",
     "lastName": "Johnson",
-    "DOB": "1995-03-10",
+    "DOB": "03/10/1995",
     "gender": "Male",
-    "address": "789 Oak Road, Los Angeles, USA",
-    "profileImg": "https://example.com/bob-johnson-image.jpg"
+    "address": "101 Tulip Street, Bangalore, India",
+    "contact": "+91-7890123456"
   },
   {
     "id": 4,
-    "firstName": "Emily",
-    "lastName": "Davis",
-    "DOB": "1988-11-25",
+    "firstName": "Neha",
+    "lastName": "Patel",
+    "DOB": "11/25/1988",
     "gender": "Female",
-    "address": "101 Pine Street, Chicago, USA",
-    "profileImg": "https://example.com/emily-davis-image.jpg"
+    "address": "567 Jasmine Avenue, Pune, India",
+    "contact": "+91-9876543210"
   },
   {
     "id": 5,
-    "firstName": "Michael",
-    "lastName": "Wilson",
-    "DOB": "1983-09-12",
+    "firstName": "Rajesh",
+    "lastName": "Verma",
+    "DOB": "09/12/1983",
     "gender": "Male",
-    "address": "567 Cedar Avenue, Houston, USA",
-    "profileImg": "https://example.com/michael-wilson-image.jpg"
+    "address": "876 Rose Street, Kolkata, India",
+    "contact": "+91-1234567890"
   },
   {
     "id": 6,
-    "firstName": "Sarah",
-    "lastName": "Brown",
-    "DOB": "1992-04-30",
+    "firstName": "Neha",
+    "lastName": "Singh",
+    "DOB": "04/30/1992",
     "gender": "Female",
-    "address": "876 Elm Street, Seattle, USA",
-    "profileImg": "https://example.com/sarah-brown-image.jpg"
+    "address": "234 Lotus Avenue, Chennai, India",
+    "contact": "+91-7890123456"
   },
   {
     "id": 7,
-    "firstName": "David",
-    "lastName": "Anderson",
-    "DOB": "1987-07-08",
+    "firstName": "Alok",
+    "lastName": "Mishra",
+    "DOB": "07/08/1987",
     "gender": "Male",
-    "address": "234 Oak Avenue, Miami, USA",
-    "profileImg": "https://example.com/david-anderson-image.jpg"
+    "address": "543 Orchid Road, Hyderabad, India",
+    "contact": "+91-9876543210"
   },
   {
     "id": 8,
-    "firstName": "Olivia",
-    "lastName": "Taylor",
-    "DOB": "1994-02-18",
+    "firstName": "Anita",
+    "lastName": "Sharma",
+    "DOB": "02/18/1994",
     "gender": "Female",
-    "address": "543 Maple Road, Denver, USA",
-    "profileImg": "https://example.com/olivia-taylor-image.jpg"
+    "address": "321 Lotus Street, Mumbai, India",
+    "contact": "+91-1234567890"
   },
   {
     "id": 9,
-    "firstName": "Daniel",
-    "lastName": "Lee",
-    "DOB": "1998-06-05",
+    "firstName": "Vikram",
+    "lastName": "Yadav",
+    "DOB": "06/05/1998",
     "gender": "Male",
-    "address": "321 Pine Avenue, Dallas, USA",
-    "profileImg": "https://example.com/daniel-lee-image.jpg"
+    "address": "987 Rose Lane, Delhi, India",
+    "contact": "+91-7890123456"
   },
   {
     "id": 10,
-    "firstName": "Mia",
-    "lastName": "Garcia",
-    "DOB": "1991-12-14",
+    "firstName": "Priyanka",
+    "lastName": "Patel",
+    "DOB": "12/14/1991",
     "gender": "Female",
-    "address": "987 Cedar Street, Phoenix, USA",
-    "profileImg": "https://example.com/mia-garcia-image.jpg"
+    "address": "101 Jasmine Avenue, Bangalore, India",
+    "contact": "+91-9876543210"
   }
 ]

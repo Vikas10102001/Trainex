@@ -42,7 +42,6 @@ function ClientForm() {
       gender: "",
       address: "",
       contact: "",
-      goaltype: "",
     },
     validationSchema,
     onSubmit: (values) => {
