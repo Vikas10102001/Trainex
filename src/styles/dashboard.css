@@ -465,13 +465,13 @@ li.table-row span {
     align-items: baseline;
   }
   .filter {
-    margin-right: 3rem;
+    margin-right: 5rem;
   }
   .dashboard-main {
     top: 14%;
   }
   .filter input[type="search"] {
-    width: 110px;
+    width: 130px;
     font-size: 12px;
   }
   .filter-item {
