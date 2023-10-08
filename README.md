@@ -60,9 +60,10 @@ The Dashboard has two sections:
   1. First Name and Last Name: Must be 2-15 characters.
   2. Address: Must be 5-50 characters.
   3. Appointment Date and Time: Cannot be a time that has already passed. When creating an appointment, the date and time must not overlap with existing data. Error messages will be shown if any of these rules are violated.
-     :-------------------------:|:-------------------------:
-     <img src="screenshots\appointment-creation-error.jpg">|<img src="screenshots\appointment-creation.jpg">
-     :-------------------------:|:-------------------------:
+     <div align="center">
+  <img src="screenshots\appointment-creation-error.jpg" width="45%" alt="Appointment Creation Error">
+  <img src="screenshots\appointment-creation.jpg" width="45%" alt="Appointment Creation">
+  </div>
      <img src="screenshots\appointment-deletion.jpg">|<img src="screenshots\appointment-validation-1.jpg">
      <img src="screenshots\client-validation-1.jpg">
 
