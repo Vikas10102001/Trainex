@@ -1,6 +1,8 @@
 import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
+import { useDispatch } from "react-redux";
+import { setAlert } from "../../store/store";
 
 const validationSchema = Yup.object({
   firstName: Yup.string()
@@ -26,7 +28,12 @@ const validationSchema = Yup.object({
   goaltype: Yup.string(),
 });
 
-function ClientForm({ onSubmit }) {
+function ClientForm() {
+  const dispatch = useDispatch();
+  const onFormSubmit = (values) => {
+    console.log(values);
+    dispatch(setAlert({ type: "info", message: "Not implemented yet" }));
+  };
   const formik = useFormik({
     initialValues: {
       firstName: "",
@@ -39,118 +46,120 @@ function ClientForm({ onSubmit }) {
     },
     validationSchema,
     onSubmit: (values) => {
-      onSubmit(values);
+      onFormSubmit(values);
     },
   });
 
   return (
-    <form onSubmit={formik.handleSubmit}>
+    <form onSubmit={formik.handleSubmit} className="client-form">
       <div>
         <label htmlFor="firstName">First Name:</label>
-        <input
-          type="text"
-          id="firstName"
-          name="firstName"
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          value={formik.values.firstName}
-        />
-        {formik.touched.firstName && formik.errors.firstName ? (
-          <div className="error">{formik.errors.firstName}</div>
-        ) : null}
+        <div className="input-error">
+          <input
+            type="text"
+            id="firstName"
+            name="firstName"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.firstName}
+          />
+          {formik.touched.firstName && formik.errors.firstName ? (
+            <div className="error">{formik.errors.firstName}</div>
+          ) : null}
+        </div>
       </div>
 
       <div>
         <label htmlFor="lastName">Last Name:</label>
-        <input
-          type="text"
-          id="lastName"
-          name="lastName"
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          value={formik.values.lastName}
-        />
-        {formik.touched.lastName && formik.errors.lastName ? (
-          <div className="error">{formik.errors.lastName}</div>
-        ) : null}
+        <div className="input-error">
+          <input
+            type="text"
+            id="lastName"
+            name="lastName"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.lastName}
+          />
+          {formik.touched.lastName && formik.errors.lastName ? (
+            <div className="error">{formik.errors.lastName}</div>
+          ) : null}
+        </div>
       </div>
 
       <div>
         <label htmlFor="DOB">Date of Birth:</label>
-        <input
-          type="text"
-          id="DOB"
-          name="DOB"
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          value={formik.values.DOB}
-        />
-        {formik.touched.DOB && formik.errors.DOB ? (
-          <div className="error">{formik.errors.DOB}</div>
-        ) : null}
+        <div className="input-error">
+          <input
+            type="text"
+            id="DOB"
+            name="DOB"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.DOB}
+          />
+          {formik.touched.DOB && formik.errors.DOB ? (
+            <div className="error">{formik.errors.DOB}</div>
+          ) : null}
+        </div>
       </div>
 
       <div>
         <label htmlFor="gender">Gender:</label>
-        <input
-          type="text"
-          id="gender"
-          name="gender"
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          value={formik.values.gender}
-        />
-        {formik.touched.gender && formik.errors.gender ? (
-          <div className="error">{formik.errors.gender}</div>
-        ) : null}
+        <div className="input-error">
+          <input
+            type="text"
+            id="gender"
+            name="gender"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.gender}
+          />
+          {formik.touched.gender && formik.errors.gender ? (
+            <div className="error">{formik.errors.gender}</div>
+          ) : null}
+        </div>
       </div>
 
       <div>
         <label htmlFor="address">Address:</label>
-        <input
-          type="text"
-          id="address"
-          name="address"
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          value={formik.values.address}
-        />
-        {formik.touched.address && formik.errors.address ? (
-          <div className="error">{formik.errors.address}</div>
-        ) : null}
+        <div className="input-error">
+          <input
+            type="text"
+            id="address"
+            name="address"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.address}
+          />
+          {formik.touched.address && formik.errors.address ? (
+            <div className="error">{formik.errors.address}</div>
+          ) : null}
+        </div>
       </div>
 
       <div>
         <label htmlFor="contact">Contact Number:</label>
-        <input
-          type="text"
-          id="contact"
-          name="contact"
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          value={formik.values.contact}
-        />
-        {formik.touched.contact && formik.errors.contact ? (
-          <div className="error">{formik.errors.contact}</div>
-        ) : null}
+        <div className="input-error">
+          <input
+            type="text"
+            id="contact"
+            name="contact"
+            onChange={formik.handleChange}
+            onBlur={formik.handleBlur}
+            value={formik.values.contact}
+          />
+          {formik.touched.contact && formik.errors.contact ? (
+            <div className="error">{formik.errors.contact}</div>
+          ) : null}
+        </div>
       </div>
-
-      <div>
-        <label htmlFor="goaltype">Goal Type:</label>
-        <input
-          type="text"
-          id="goaltype"
-          name="goaltype"
-          onChange={formik.handleChange}
-          onBlur={formik.handleBlur}
-          value={formik.values.goaltype}
-        />
-        {formik.touched.goaltype && formik.errors.goaltype ? (
-          <div className="error">{formik.errors.goaltype}</div>
-        ) : null}
-      </div>
-
-      <button type="submit">Submit</button>
+      <button
+        type="submit"
+        className="primary"
+        disabled={formik.errors && formik.touched}
+      >
+        Add client
+      </button>
     </form>
   );
 }

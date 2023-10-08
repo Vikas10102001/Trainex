@@ -7,7 +7,7 @@ function ClientProfile() {
 
   return (
     <Card className={"table-card"}>
-      <ul className="table">
+      <ul className="table client">
         <li className="table-header">
           <div>ID</div>
           <div>First Name</div>
@@ -16,10 +16,9 @@ function ClientProfile() {
           <div>Gender</div>
           <div>Address</div>
           <div>Contact</div>
-          <div>Goal Type</div>
         </li>
         {clients.map((client) => (
-          <li className="table-row client" key={client.id}>
+          <li className="table-row" key={client.id}>
             <div>{client.id}</div>
             <div>{client.firstName}</div>
             <div>{client.lastName}</div>
@@ -27,7 +26,6 @@ function ClientProfile() {
             <div>{client.gender}</div>
             <div>{client.address}</div>
             <div>{client.contact}</div>
-            <div>{client.goaltype}</div>
           </li>
         ))}
       </ul>
