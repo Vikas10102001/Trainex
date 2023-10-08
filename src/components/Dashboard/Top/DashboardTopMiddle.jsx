@@ -41,8 +41,9 @@ export default function DashboardTopMiddle() {
       <Modal
         isOpen={formModalIsOpen}
         onCancel={handleOnCancel}
-        title={"Add CLient"}
+        title={"Add Client"}
         data={<ClientForm />}
+        className={"add-client"}
       ></Modal>
     </div>
   );

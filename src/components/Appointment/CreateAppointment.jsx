@@ -5,7 +5,7 @@ import {
   validateAppointmentData,
   validateAppointmentTime,
 } from "../../utils/validation";
-import { Close, RestartAlt } from "@mui/icons-material";
+import { RestartAlt } from "@mui/icons-material";
 
 export default function CreateAppointment({ clientId }) {
   const [error, setError] = useState(null);
@@ -62,22 +62,22 @@ export default function CreateAppointment({ clientId }) {
   const currentDate = new Date().toISOString().split("T")[0];
   return (
     <form>
-      <label>Create Appointment :&nbsp;</label>
-      <input
-        type="date"
-        name="appointmentDate"
-        id="appointmentDate"
-        min={currentDate}
-        ref={timeRef}
-        onChange={handleChangeDate}
-      />
-      <input
-        type="time"
-        name="appointmentTime"
-        id="appointmentTime"
-        onChange={handleChangeTime}
-        ref={dateRef}
-      />
+      <span>Create :&nbsp;</span>
+        <input
+          type="date"
+          name="appointmentDate"
+          id="appointmentDate"
+          min={currentDate}
+          ref={timeRef}
+          onChange={handleChangeDate}
+        />
+        <input
+          type="time"
+          name="appointmentTime"
+          id="appointmentTime"
+          onChange={handleChangeTime}
+          ref={dateRef}
+        />
       <div className="buttons">
         <button type="reset" onClick={handleReset} className="reset ">
           <RestartAlt

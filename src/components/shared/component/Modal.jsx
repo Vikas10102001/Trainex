@@ -1,8 +1,15 @@
-import { Close } from "@mui/icons-material";
 import React, { useEffect } from "react";
 import ReactDOM from "react-dom";
 
-const Modal = ({ isOpen, onConfirm, onCancel, title, footer, data }) => {
+const Modal = ({
+  isOpen,
+  onConfirm,
+  onCancel,
+  title,
+  footer,
+  data,
+  className,
+}) => {
   useEffect(() => {
     if (isOpen) {
       document.body.style.overflowY = "hidden";
@@ -16,7 +23,7 @@ const Modal = ({ isOpen, onConfirm, onCancel, title, footer, data }) => {
   return ReactDOM.createPortal(
     <div className={`modal ${!isOpen ? "is-inactive" : "is-active"}`}>
       <div className="modal-background" onClick={onCancel}></div>
-      <div className="modal-card">
+      <div className={`modal-card ${className}`}>
         <header className="modal-card-head">
           <div className="modal-card-title">{title}</div>
         </header>

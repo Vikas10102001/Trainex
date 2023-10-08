@@ -18,7 +18,7 @@ export default function DashboardTopRight({
   if (
     nextAppointment &&
     nextAppointment !== "Today" &&
-    nextAppointment != "Tomorrow"
+    nextAppointment !== "Tomorrow"
   )
     formatDateAndTime = formatDate(nextAppointment);
   return (

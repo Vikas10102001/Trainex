@@ -129,12 +129,21 @@
   padding: 0.4rem 0.65rem;
 }
 
+/* table */
+ul.table {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
 ul.table .no-data {
   text-align: center;
 }
+.table-card {
+  overflow: hidden;
+  border: none;
+}
 li.table-header {
   display: flex;
-  overflow: hidden;
   font-size: 14px;
   background: #e7e7e7;
   border-radius: 15px 15px 0 0;
@@ -159,6 +168,10 @@ li.table-header div {
 .table.appointment li.table-row div:nth-child(3),
 .table.appointment li.table-header div:nth-child(3) {
   flex-grow: 1;
+}
+.table.client li.table-row div:nth-child(6),
+.table.client li.table-header div:nth-child(6) {
+  flex-grow: 2;
 }
 li.table-header div {
   color: #515151;
@@ -187,6 +200,7 @@ li.table-row.appointment {
 }
 li.table-row.appointment h4 {
   margin: 1rem 0 0 0;
+  color: #515151;
   text-align: center;
 }
 li.table-row.appointment .table-header {
@@ -194,9 +208,6 @@ li.table-row.appointment .table-header {
 }
 li.table-row span {
   font-size: 0.85rem;
-}
-li.table-row.client div {
-  font-size: 14px;
 }
 
 /* Create appointment */
@@ -208,7 +219,12 @@ li.table-row.client div {
 }
 .create-appointment form {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+}
+.create-appointment form label {
+  display: flex;
+  justify-content: center;
   align-items: center;
 }
 .create-appointment form .reset {
@@ -244,7 +260,53 @@ li.table-row.client div {
 .confirm-modal-btn {
   margin: 0 0.75rem;
 }
-
+/* client form */
+.add-client {
+  width: 40vw;
+  min-width: 330px;
+}
+.client-form {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  position: relative;
+}
+.client-form div {
+  margin: 0.1rem 0;
+  width: 100%;
+  display: flex;
+}
+.client-form div label {
+  font-size: 13px;
+  width: 200px;
+  color: #515151;
+}
+.client-form div label::before {
+  content: "*";
+  color: #fb6f6f;
+  font-weight: bold;
+}
+.client-form .input-error {
+  display: flex;
+  flex-direction: column;
+}
+.client-form .input-error input {
+  max-width: 200px;
+  min-width: 150px;
+}
+.client-form button {
+  padding: 0.3rem 0.75rem;
+  margin-top: 1rem;
+  font-size: 13px;
+}
+.table.client li.table-row {
+  padding: 0.5rem 0;
+}
+.table.client li.table-row div {
+  font-size: 14px;
+  color: #515151;
+}
+/* responsive */
 @media screen and (max-width: 1050px) {
   .dashboard-top-middle {
     flex-direction: column;
@@ -269,6 +331,18 @@ li.table-row.client div {
   .dashboard-top-middle div:nth-child(2) {
     margin-top: 1rem;
   }
+  li.table-row div input {
+    width: 80%;
+  }
+  li.table-row.appointment input{
+    width: max-content;
+  }
+  .add-client {
+    width: 60vw;
+  }
+  .table.client li.table-row div {
+    font-size: 13px;
+  }
 }
 @media screen and (max-width: 950px) {
   .dashboard-main .table-data,
@@ -276,20 +350,32 @@ li.table-row.client div {
   .dashboard-main .header {
     width: 90%;
   }
+  .table-card {
+    overflow: auto;
+  }
+  li.table-row,
+  li.table-header {
+    min-width: 790px;
+  }
+  li.table-row div,
+  li.table-header div {
+    flex-shrink: 0;
+  }
   li .table-row-item.manage button {
     padding: 0.05rem 0.5rem;
   }
   li .table-row-item.manage button span {
     font-size: 14px;
   }
+  li.table-row.appointment h4 {
+    margin: 0.5rem;
+  }
+  .create-appointment {
+    padding: 0;
+  }
 }
 
 @media screen and (max-width: 755px) {
-  ul.table {
-    list-style-type: none;
-    padding: 0;
-    margin: 0;
-  }
   .dashboard-top-middle {
     width: 90vw;
     position: absolute;
@@ -319,6 +405,22 @@ li.table-row.client div {
   }
   .filter input[type="search"] {
     width: 150px;
+  }
+  .dashboard-main .table-data {
+    width: 98%;
+  }
+  li.table-header div {
+    font-size: 13px;
+  }
+  .table-row-item.manage button {
+    font-size: 13px;
+  }
+  li.table-row,
+  li.table-header {
+    min-width: 720px;
+  }
+  .add-client {
+    width: 70vw;
   }
 }
 
@@ -353,7 +455,7 @@ li.table-row.client div {
   .dashboard-main .switch button span {
     display: none;
   }
-  .dashboard-main .switch button *{
+  .dashboard-main .switch button * {
     font-size: 14px;
   }
   .dashboard-main .header {
@@ -369,25 +471,34 @@ li.table-row.client div {
     width: 110px;
     font-size: 10px;
   }
-  .filter-item{
-    padding:0.2rem 0.5rem;
+  .filter-item {
+    padding: 0.2rem 0.5rem;
   }
-  .filter-menu{
+  .filter-menu {
     margin: 0.5rem;
   }
-  .filter-menu .filter-item label{
+  .filter-menu .filter-item label {
     font-size: 12px;
   }
-  .filter-button{
+  .filter-button {
     padding: 0.3rem 0.5rem;
   }
-  .filter-button button{
-    padding:0.3rem 0.5rem;
+  .filter-button button {
+    padding: 0.3rem 0.5rem;
   }
 }
-@media screen and (max-width: 375px){
-.filter-item{
-  flex-direction: column;
-  align-items: flex-start;
+@media screen and (max-width: 375px) {
+  .filter-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
 }
+
+@media screen and (min-height: 725px) {
+  .dashboard-top {
+    height: max-content;
+  }
+  .dashboard-top-middle {
+    top: 85%;
+  }
 }

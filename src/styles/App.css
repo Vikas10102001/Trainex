@@ -247,32 +247,43 @@ input[type="time"] {
   padding: 0 0.25rem;
   outline: none;
 }
+input[type="text"] {
+  border-radius: 12px;
+  border: 1px solid #7373733b;
+  color: #515151;
+  outline: none;
+  padding: 0.25rem;
+
+}
 
 .error {
   color: #d44b4b;
-  font-size: 12px;
+  font-size: 11px;
   margin: 0;
 }
-@media screen and (max-width: 780px) 
-{
-  .alert{
+@media screen and (max-width: 780px) {
+  .alert {
     padding: 0.6rem 2rem;
     width: max-content;
+  }
+}
+@media screen and (max-width: 950px) {
+  .error {
+    font-size: 10px;
   }
 }
 @media screen and (max-width: 500px) {
   .modal-card {
     max-width: 80vw;
   }
-  .alert{
+  .alert {
     padding: 0.6rem 1rem;
     width: 200px;
   }
 }
 
-@media screen and (max-width: 450px)
-{
-  .modal-card button{
+@media screen and (max-width: 450px) {
+  .modal-card button {
     margin: 0 0.25rem;
     padding: 0.25rem 0.5rem;
   }
