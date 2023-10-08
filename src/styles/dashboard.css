@@ -135,9 +135,6 @@ ul.table {
   padding: 0;
   margin: 0;
 }
-ul.table .no-data {
-  text-align: center;
-}
 .table-card {
   overflow: hidden;
   border: none;
@@ -156,6 +153,12 @@ li.table-row {
   border-bottom: 1px solid #ddd;
   padding: 0.2rem 0;
 }
+
+li.table-row.no-data p {
+  flex: 1;
+  text-align: center;
+}
+
 li.table-row div,
 li.table-header div {
   flex: 1;
@@ -334,7 +337,7 @@ li.table-row span {
   li.table-row div input {
     width: 80%;
   }
-  li.table-row.appointment input{
+  li.table-row.appointment input {
     width: max-content;
   }
   .add-client {

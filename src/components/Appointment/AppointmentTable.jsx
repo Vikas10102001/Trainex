@@ -24,7 +24,11 @@ function AppointmentTable({ clientAppointment }) {
           <div>Appointments</div>
         </li>
         {clientAppointment.length === 0 ? (
-          <p className="no-data">No appoitnments</p>
+          <li className="table-row no-data">
+            <p>No data</p>
+            <p>No data</p>
+            <p>No data</p>
+          </li>
         ) : (
           <>
             {clientAppointment.map((item) => (
