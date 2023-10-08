@@ -56,7 +56,7 @@ function calculateStat(clientAppointments) {
       nextAppointment = "Today";
     else if (nextAppointment.getDate() === currentDate.getDate() + 1)
       nextAppointment = "Tomorrow";
-    else nextAppointment = nextAppointment.toLocaleDateString();
+    else nextAppointment = nextAppointment.toLocaleDateString("en-US");
   }
   return {
     todayAppointments,

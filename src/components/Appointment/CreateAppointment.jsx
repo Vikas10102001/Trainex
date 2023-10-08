@@ -19,7 +19,7 @@ export default function CreateAppointment({ clientId }) {
     const error =
       time && validateAppointmentTime(inputDate.toLocaleDateString(), time);
     setError(error);
-    setDate(inputDate.toLocaleDateString());
+    setDate(inputDate.toLocaleDateString("en-US"));
   };
 
   const handleChangeTime = (e) => {
