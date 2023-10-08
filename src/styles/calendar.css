@@ -204,7 +204,7 @@
     font-size: 12px;
   }
 }
-@media screen and (min-height: 800px) {
+@media screen and (min-height: 750px) {
   .calendar {
     position: relative;
     top: 6vh;
@@ -213,9 +213,15 @@
     position: relative;
     top: 2vh;
   }
+  .info-card{
+    position: relative;
+    top:-9%;
+
+  }
 }
 @media screen and (min-height: 915px) {
   .calendar-container {
     top: 8vh;
   }
+  
 }

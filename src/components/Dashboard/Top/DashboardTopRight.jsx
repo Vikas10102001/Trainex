@@ -27,7 +27,7 @@ export default function DashboardTopRight({
       {nextAppointment ? (
         <div className="data-items">
           <div className="data-item">
-            <span className="value">{formatDateAndTime}</span>
+            <span className="value">{nextAppointment}</span>
           </div>
           <div className="data-item">
             <span className="value">{formatTime(nextAppointmentTime)}</span>

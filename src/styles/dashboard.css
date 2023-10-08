@@ -469,7 +469,7 @@ li.table-row span {
   }
   .filter input[type="search"] {
     width: 110px;
-    font-size: 10px;
+    font-size: 12px;
   }
   .filter-item {
     padding: 0.2rem 0.5rem;

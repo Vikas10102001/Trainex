@@ -190,17 +190,20 @@ button.danger:hover {
 }
 
 .alert_success {
-  color: #28b487;
+  background-color:#28b487 ;
+  color: white;
   border: 1px solid #28b487;
 }
 
 .alert_info {
-  color: #007bff;
+  background-color: #007bff;
+  color: white;
   border: 1px solid #007bff;
 }
 
 .alert_error {
-  color: #d44b4b;
+  background-color: #d44b4b;
+  color: white;
   border: 1px solid #d44b4b;
 }
 

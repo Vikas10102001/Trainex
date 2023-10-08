@@ -23,7 +23,7 @@ const Modal = ({
   return ReactDOM.createPortal(
     <div className={`modal ${!isOpen ? "is-inactive" : "is-active"}`}>
       <div className="modal-background" onClick={onCancel}></div>
-      <div className={`modal-card ${className}`}>
+      <div className={`modal-card ${className ? className : ""}`}>
         <header className="modal-card-head">
           <div className="modal-card-title">{title}</div>
         </header>

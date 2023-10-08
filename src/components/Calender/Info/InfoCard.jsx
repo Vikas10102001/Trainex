@@ -28,6 +28,7 @@ export default function InfoCard({ data, currentDate }) {
         {count + " " + str}
       </div>
       <Modal
+        className={"info-card"}
         onCancel={handleModalOnCancel}
         title={
           <div className="info-card-title">
