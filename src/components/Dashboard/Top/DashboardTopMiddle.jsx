@@ -3,6 +3,8 @@ import Card from "../../shared/ui/Card";
 import { useNavigate } from "react-router-dom";
 import Modal from "../../shared/component/Modal";
 import ClientForm from "../../Client/ClientForm";
+import { useDispatch } from "react-redux";
+import { setAlert } from "../../../store/store";
 
 const additionalStyles = {
   flex: 1,
@@ -14,9 +16,11 @@ const additionalStyles = {
 
 export default function DashboardTopMiddle() {
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const [formModalIsOpen, setFormModalIsOpen] = useState(false);
   const handleAddOnClick = () => {
-    setFormModalIsOpen(true);
+    // setFormModalIsOpen(true);
+    dispatch(setAlert({ type: "info", message: "Not implemented yet" }));
   };
   const handleOnCancel = () => {
     setFormModalIsOpen(false);

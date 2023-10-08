@@ -155,7 +155,7 @@ function ClientForm() {
       <button
         type="submit"
         className="primary"
-        disabled={formik.errors && formik.touched}
+        disabled={formik.errors && !formik.touched}
       >
         Add client
       </button>
