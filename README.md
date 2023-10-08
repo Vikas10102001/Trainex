@@ -48,44 +48,44 @@ The Dashboard has two sections:
 
 - **Main Section:** This section contains two tables: one for displaying client details and the other for appointment details. It also contains elements for switching tables, filtering data based on dates and gender, and a search functionality to search for users by name. The appointment table has implementations of all the required functionality mentioned in the assignment, including editable fields with buttons for updating data. Changes made to the appointment table will also apply to the client table.
 
-<img src="screenshots/dashboard.jpg">
+<img src="screenshots/dashboard.jpg" width="45%" height="200px">
 
 **Notes:**
 
 - After a filter is applied, the filter button color changes to blue to indicate that a filter is active. The filter can be reset using the button in the filter menu, which will remove the filter and display all the data.
 
-<img src="screenshots\filter-is-active.jpg">
+<img src="screenshots\filter-is-active.jpg" width="45%" height="200px">
 
 - There is some validation and rules for updating data and appointment creation:
   1. First Name and Last Name: Must be 2-15 characters.
   2. Address: Must be 5-50 characters.
   3. Appointment Date and Time: Cannot be a time that has already passed. When creating an appointment, the date and time must not overlap with existing data. Error messages will be shown if any of these rules are violated.
      
-     <div align="center">
-     <img src="screenshots\appointment-creation-error.jpg" width="45%">
-     <img src="screenshots\appointment-creation.jpg" width="45%">
+     <div>
+     <img src="screenshots\appointment-creation-error.jpg" width="45%" height="200px">
+     <img src="screenshots\appointment-creation.jpg" width="45%" height="200px">
      </div>
      
-     <div align="center">
-     <img src="screenshots\appointment-deletion.jpg" width="45%">
-     <img src="screenshots\appointment-validation-1.jpg" width="45%">
+     <div>
+     <img src="screenshots\appointment-deletion.jpg" width="45%" height="200px">
+     <img src="screenshots\appointment-validation-1.jpg"  width="45%"height="200px">
      </div>
      
-     <img src="screenshots\client-validation-1.jpg">
+     <img src="screenshots\client-validation-1.jpg" width="45%" height="200px">
 
 ### Calendar
 
 This page contains the implementation of the bonus feature, a calendar that can be used by trainers to conveniently view their appointments. You can access it using the navigation "Calendar" button and the "View Calendar" button.
 
-<img src="screenshots/calendar.jpg">
+<img src="screenshots/calendar.jpg" width="45%" height="200px">
 
 **Note:**
 
 - There is an info card that displays the names of clients and appointment times for a particular date. This card becomes visible when you click on the text indicating the total appointments for the day.
 
 <div align="center">
-  <img src="screenshots\info-link.jpg" width="45%">
-  <img src="screenshots\info-card.jpg" width="45%">
+  <img src="screenshots\info-link.jpg" width="45%" height="200px">
+  <img src="screenshots\info-card.jpg" width="45%" height="200px">
 </div>
 
 ## Things to Consider
