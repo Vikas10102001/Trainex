@@ -2,7 +2,7 @@
 
 ## Technology Used
 
-This application is built with React and its libraries.
+This application is built with ReactJs and its libraries.
 
 ## Requirements
 
@@ -83,6 +83,4 @@ This page contains the implementation of the bonus feature, a calendar that can 
 I am planning to continue working on this app and adding more features like adding more clients and managing them separately. One important thing to note is that there is currently no method used for persisting data, such as local storage or a backend. The application uses Redux for state management, which stores appointment and client data in the global state. This way, the data will persist as long as the user is using the application, but it won't survive a page refresh or a new session.
 
 ## Links
-
-- **GitHub Repository:** [Trainex GitHub Repository](https://github.com/Vikas10102001/Trainex)
 - **Live Demo:** [Trainex Live Demo](https://trainex.vercel.app/)
