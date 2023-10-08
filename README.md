@@ -2,7 +2,7 @@
 
 ## Technology Used
 
-This application is built with React and its libraries.
+This application is built with ReactJs and its libraries.
 
 ## Requirements
 
