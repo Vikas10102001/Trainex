@@ -145,12 +145,7 @@ button.secondary {
   border: 1px solid #007bff;
   color: #007bff;
 }
-button.primary:disabled,
-button.primary:disabled:hover {
-  background-color: rgba(239, 239, 239, 0.3);
-  color: rgba(16, 16, 16, 0.3);
-  border: 1px solid #e2e2e2;
-}
+
 button.primary:hover {
   background: transparent;
   border: 1px solid #007bff;
@@ -171,6 +166,11 @@ button.danger:hover {
   color: #d44b4b;
   border: 1px solid #d44b4b;
 }
+button:disabled {
+  background-color: rgba(239, 239, 239, 0.3) !important;
+  color: rgba(16, 16, 16, 0.3) !important;
+  border: 1px solid #e2e2e2 !important;
+}
 /*Alert*/
 
 .alert {
@@ -190,7 +190,7 @@ button.danger:hover {
 }
 
 .alert_success {
-  background-color:#28b487 ;
+  background-color: #28b487;
   color: white;
   border: 1px solid #28b487;
 }

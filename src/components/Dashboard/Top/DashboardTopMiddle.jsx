@@ -19,8 +19,8 @@ export default function DashboardTopMiddle() {
   const dispatch = useDispatch();
   const [formModalIsOpen, setFormModalIsOpen] = useState(false);
   const handleAddOnClick = () => {
-    // setFormModalIsOpen(true);
-    dispatch(setAlert({ type: "info", message: "Not implemented yet" }));
+    setFormModalIsOpen(true);
+    // dispatch(setAlert({ type: "info", message: "Not implemented yet" }));
   };
   const handleOnCancel = () => {
     setFormModalIsOpen(false);

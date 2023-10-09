@@ -279,7 +279,7 @@ li.table-row span {
   border: 1px solid #7373733b;
   color: #515151;
   outline: none;
-  padding: 0.25rem;
+  padding: 0.18rem;
 }
 .client-form div {
   margin: 0.1rem 0;
@@ -290,8 +290,10 @@ li.table-row span {
   font-size: 13px;
   width: 200px;
   color: #515151;
+  position: relative;
+  top: 4px;
 }
-.client-form div label::before {
+.client-form div label.mandatory-field::before {
   content: "*";
   color: #fb6f6f;
   font-weight: bold;
@@ -303,6 +305,17 @@ li.table-row span {
 .client-form .input-error input {
   max-width: 200px;
   min-width: 150px;
+}
+.client-form .input-error .radios label {
+  width: max-content;
+  top:2px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 0.2rem;
+}
+.client-form .input-error .radios input {
+  min-width: 0;
 }
 .client-form button {
   padding: 0.3rem 0.75rem;

@@ -2,7 +2,6 @@ import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useDispatch } from "react-redux";
-import { setAlert } from "../../store/store";
 
 const validationSchema = Yup.object({
   firstName: Yup.string()
@@ -30,9 +29,10 @@ const validationSchema = Yup.object({
 
 function ClientForm() {
   const dispatch = useDispatch();
+
   const onFormSubmit = (values) => {
     console.log(values);
-    dispatch(setAlert({ type: "info", message: "Not implemented yet" }));
+    // dispatch(setAlert({ type: "info", message: "Not implemented yet" }));
   };
   const formik = useFormik({
     initialValues: {
@@ -48,11 +48,13 @@ function ClientForm() {
       onFormSubmit(values);
     },
   });
-
+  console.log(formik.errors && !formik.touched);
   return (
     <form onSubmit={formik.handleSubmit} className="client-form">
       <div>
-        <label htmlFor="firstName">First Name:</label>
+        <label className="mandatory-field" htmlFor="firstName">
+          First Name:
+        </label>
         <div className="input-error">
           <input
             type="text"
@@ -69,7 +71,9 @@ function ClientForm() {
       </div>
 
       <div>
-        <label htmlFor="lastName">Last Name:</label>
+        <label className="mandatory-field" htmlFor="lastName">
+          Last Name:
+        </label>
         <div className="input-error">
           <input
             type="text"
@@ -86,10 +90,12 @@ function ClientForm() {
       </div>
 
       <div>
-        <label htmlFor="DOB">Date of Birth:</label>
+        <label className="mandatory-field" htmlFor="DOB">
+          Date of Birth:
+        </label>
         <div className="input-error">
           <input
-            type="text"
+            type="date"
             id="DOB"
             name="DOB"
             onChange={formik.handleChange}
@@ -103,16 +109,43 @@ function ClientForm() {
       </div>
 
       <div>
-        <label htmlFor="gender">Gender:</label>
+        <label className="mandatory-field">Gender:</label>
         <div className="input-error">
-          <input
-            type="text"
-            id="gender"
-            name="gender"
-            onChange={formik.handleChange}
-            onBlur={formik.handleBlur}
-            value={formik.values.gender}
-          />
+          <div className="radios">
+            <label>
+              <input
+                type="radio"
+                name="gender"
+                value="male"
+                checked={formik.values.gender === "male"}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+              />
+              Male
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="gender"
+                value="female"
+                checked={formik.values.gender === "female"}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+              />
+              Female
+            </label>
+            <label>
+              <input
+                type="radio"
+                name="gender"
+                value="other"
+                checked={formik.values.gender === "other"}
+                onChange={formik.handleChange}
+                onBlur={formik.handleBlur}
+              />
+              Other
+            </label>
+          </div>
           {formik.touched.gender && formik.errors.gender ? (
             <div className="error">{formik.errors.gender}</div>
           ) : null}
@@ -120,7 +153,9 @@ function ClientForm() {
       </div>
 
       <div>
-        <label htmlFor="address">Address:</label>
+        <label className="mandatory-field" htmlFor="address">
+          Address:
+        </label>
         <div className="input-error">
           <input
             type="text"
@@ -137,7 +172,9 @@ function ClientForm() {
       </div>
 
       <div>
-        <label htmlFor="contact">Contact Number:</label>
+        <label className="mandatory-field" htmlFor="contact">
+          Contact Number:
+        </label>
         <div className="input-error">
           <input
             type="text"
@@ -152,11 +189,7 @@ function ClientForm() {
           ) : null}
         </div>
       </div>
-      <button
-        type="submit"
-        className="primary"
-        disabled={formik.errors && !formik.touched}
-      >
+      <button type="submit" className="primary" disabled={true}>
         Add client
       </button>
     </form>
