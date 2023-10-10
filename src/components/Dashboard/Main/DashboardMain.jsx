@@ -45,11 +45,6 @@ export default function DashboardMain({
         filteredClientsWithAppointment[ind].appointments.push(appointment);
       }
     });
-    if (
-      filterIsActive &&
-      filteredClientsWithAppointment[ind].appointments.length === 0
-    )
-      delete filteredClientsWithAppointment[ind];
   });
   return (
     <div className="dashboard-main">
