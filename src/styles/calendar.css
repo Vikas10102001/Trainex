@@ -69,6 +69,9 @@
 .left-column button:hover {
   color: #424242;
 }
+.left-column button:disabled {
+  border: none !important;
+}
 .right-column {
   flex: 10;
   overflow: hidden;
@@ -214,15 +217,13 @@
     position: relative;
     top: 2vh;
   }
-  .info-card{
+  .info-card {
     position: relative;
-    top:-9%;
-
+    top: -9%;
   }
 }
 @media screen and (min-height: 915px) {
   .calendar-container {
     top: 8vh;
   }
-  
 }
