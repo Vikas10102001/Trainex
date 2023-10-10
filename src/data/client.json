@@ -6,7 +6,7 @@
     "DOB": "05/15/1990",
     "gender": "Male",
     "address": "456 Red Rose Avenue, Mumbai, India",
-    "contact": "+91-1234567890"
+    "contact": "1234567890"
   },
   {
     "id": 2,
@@ -15,7 +15,7 @@
     "DOB": "08/20/1985",
     "gender": "Female",
     "address": "789 Lotus Lane, Delhi, India",
-    "contact": "+91-9876543210"
+    "contact": "9876543210"
   },
   {
     "id": 3,
@@ -24,7 +24,7 @@
     "DOB": "03/10/1995",
     "gender": "Male",
     "address": "101 Tulip Street, Bangalore, India",
-    "contact": "+91-7890123456"
+    "contact": "7890123456"
   },
   {
     "id": 4,
@@ -33,7 +33,7 @@
     "DOB": "11/25/1988",
     "gender": "Female",
     "address": "567 Jasmine Avenue, Pune, India",
-    "contact": "+91-9876543210"
+    "contact": "9876543210"
   },
   {
     "id": 5,
@@ -42,7 +42,7 @@
     "DOB": "09/12/1983",
     "gender": "Male",
     "address": "876 Rose Street, Kolkata, India",
-    "contact": "+91-1234567890"
+    "contact": "1234567890"
   },
   {
     "id": 6,
@@ -51,7 +51,7 @@
     "DOB": "04/30/1992",
     "gender": "Female",
     "address": "234 Lotus Avenue, Chennai, India",
-    "contact": "+91-7890123456"
+    "contact": "7890123456"
   },
   {
     "id": 7,
@@ -60,7 +60,7 @@
     "DOB": "07/08/1987",
     "gender": "Male",
     "address": "543 Orchid Road, Hyderabad, India",
-    "contact": "+91-9876543210"
+    "contact": "9876543210"
   },
   {
     "id": 8,
@@ -69,7 +69,7 @@
     "DOB": "02/18/1994",
     "gender": "Female",
     "address": "321 Lotus Street, Mumbai, India",
-    "contact": "+91-1234567890"
+    "contact": "1234567890"
   },
   {
     "id": 9,
@@ -78,7 +78,7 @@
     "DOB": "06/05/1998",
     "gender": "Male",
     "address": "987 Rose Lane, Delhi, India",
-    "contact": "+91-7890123456"
+    "contact": "7890123456"
   },
   {
     "id": 10,
@@ -87,6 +87,6 @@
     "DOB": "12/14/1991",
     "gender": "Female",
     "address": "101 Jasmine Avenue, Bangalore, India",
-    "contact": "+91-9876543210"
+    "contact": "9876543210"
   }
 ]

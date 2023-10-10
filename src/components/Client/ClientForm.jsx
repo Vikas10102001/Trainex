@@ -2,6 +2,8 @@ import React from "react";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useDispatch } from "react-redux";
+import { createClient, setAlert } from "../../store/store";
+import { validateClientOnSave } from "../../utils/validation";
 
 const validationSchema = Yup.object({
   firstName: Yup.string()
@@ -29,10 +31,21 @@ const validationSchema = Yup.object({
 
 function ClientForm() {
   const dispatch = useDispatch();
-
-  const onFormSubmit = (values) => {
-    console.log(values);
-    // dispatch(setAlert({ type: "info", message: "Not implemented yet" }));
+  const onFormSubmit = (values, resetForm) => {
+    let convertDOB = new Date(values.DOB);
+    values.DOB = convertDOB.toLocaleDateString();
+    values.firstName = values.firstName.trim();
+    values.lastName = values.lastName.trim();
+    values.address = values.address.trim();
+    let err = validateClientOnSave(values);
+    if (err) dispatch(setAlert({ type: "error", message: err }));
+    else {
+      dispatch(createClient(values));
+      dispatch(
+        setAlert({ type: "success", message: "Client added successfully" })
+      );
+      resetForm();
+    }
   };
   const formik = useFormik({
     initialValues: {
@@ -44,11 +57,10 @@ function ClientForm() {
       contact: "",
     },
     validationSchema,
-    onSubmit: (values) => {
-      onFormSubmit(values);
+    onSubmit: (values, { resetForm }) => {
+      onFormSubmit(values, resetForm);
     },
   });
-  console.log(formik.errors && !formik.touched);
   return (
     <form onSubmit={formik.handleSubmit} className="client-form">
       <div>
@@ -116,8 +128,8 @@ function ClientForm() {
               <input
                 type="radio"
                 name="gender"
-                value="male"
-                checked={formik.values.gender === "male"}
+                value="Male"
+                checked={formik.values.gender === "Male"}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
               />
@@ -127,8 +139,8 @@ function ClientForm() {
               <input
                 type="radio"
                 name="gender"
-                value="female"
-                checked={formik.values.gender === "female"}
+                value="Female"
+                checked={formik.values.gender === "Female"}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
               />
@@ -138,8 +150,8 @@ function ClientForm() {
               <input
                 type="radio"
                 name="gender"
-                value="other"
-                checked={formik.values.gender === "other"}
+                value="Other"
+                checked={formik.values.gender === "Other"}
                 onChange={formik.handleChange}
                 onBlur={formik.handleBlur}
               />
@@ -189,7 +201,11 @@ function ClientForm() {
           ) : null}
         </div>
       </div>
-      <button type="submit" className="primary" disabled={true}>
+      <button
+        type="submit"
+        className="primary"
+        // disabled={formik.errors || !formik.touched}
+      >
         Add client
       </button>
     </form>

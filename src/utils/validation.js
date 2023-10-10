@@ -59,3 +59,18 @@ export const validateAppointmentDataOnUpdate = ({ id, updates }) => {
     id: appointment.id,
   });
 };
+
+export const validateClientOnSave = (clientData) => {
+  const clients = store.getState().client.data;
+  let error = null;
+  clients.forEach((el) => {
+    if (
+      el.firstName === clientData.firstName &&
+      el.lastName === clientData.lastName &&
+      el.contact === clientData.contact
+    )
+      error = "Client with same name and contact already exists";
+  });
+
+  return error;
+};

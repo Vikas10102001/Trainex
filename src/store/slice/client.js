@@ -8,7 +8,7 @@ const clientSlice = createSlice({
   },
   reducers: {
     createClient(state, action) {
-      const { firstName, lastName, DOB, gender, address, profileImg } =
+      const { firstName, lastName, DOB, gender, address, contact } =
         action.payload;
       const newClient = {
         id: state.data.length + 1, 
@@ -17,7 +17,7 @@ const clientSlice = createSlice({
         DOB,
         gender,
         address,
-        profileImg,
+        contact,
       };
       state.data.push(newClient);
     },
