@@ -42,7 +42,7 @@ The Dashboard has two sections:
 - **Top Section:** This section contains 4 cards.
 
   - The first card displays data like the appointment count (today and weekly). Weekly count represents the count of appointments for the current week (from Sunday to Saturday). This section also contains information about the next appointment.
-  - The second card ("Add Client") is not implemented yet but will open the form for adding new clients when implemented.
+  - The second card ("Add Client")  will open the form for adding new clients.
   - The third card ("View Calendar") allows you to open the calendar.
   - The fourth card contains information about the next appointment.
 
@@ -90,7 +90,7 @@ This page contains the implementation of the bonus feature, a calendar that can 
 
 ## Things to Consider
 
-I am planning to continue working on this app and adding more features like adding more clients and managing them separately. One important thing to note is that there is currently no method used for persisting data, such as local storage or a backend. The application uses Redux for state management, which stores appointment and client data in the global state. This way, the data will persist as long as the user is using the application, but it won't survive a page refresh or a new session.
+One important thing to note is that there is currently no method used for persisting data, such as local storage or a backend. The application uses Redux for state management, which stores appointment and client data in the global state. This way, the data will persist as long as the user is using the application, but it won't survive a page refresh or a new session.
 
 ## Links
 - **Live Demo:** [Trainex Live Demo](https://trainex.vercel.app/)
